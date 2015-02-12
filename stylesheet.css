@@ -1,0 +1,109 @@
+/*html { 
+  background: url(./Images/welcome.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    background-size: cover;
+    background-color: #001A33;
+}
+
+body p {
+    font-size: 0.8em;
+    line-height: 1.28;
+}
+
+#wrapper {
+    width: 1080px;
+    background-color: #F0E0B2;
+    margin: 0 auto;
+    padding: 10px;
+    border: 5px solid #A37A8E;
+}
+
+#banner {
+    background-image: url(./Images/welcome.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 5px solid #dedede;    
+    width: 960px;
+    height: 575px;
+}
+
+#content_area {
+    float: left;
+    width: 750px;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+}
+
+#sidebar {
+    float: right;
+    width: 280px;
+    height: 400px;
+    margin: 20px 10px;
+    padding: 10px;
+    border: 2px solid #5C002E;
+}
+
+footer {
+    clear: both;
+    width: 960px;
+    height: 40px;
+    /*padding: 10px;*/
+    border: 3px solid #E3E3E3;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0.1em 0.1em #333;
+    //background-image: url(./Images/welcome.jpg);
+    background-color: #B88A00;
+}
+
+#navigation {
+    height: 100px;
+    width: 960px;
+    border: 3px solid #E3E3E3;
+    margin-top: 10px;
+    text-shadow: 0.1em 0.1em #333;
+    //background-image: url(./Images/welcome.jpg);
+    background-color: #310010;
+}
+
+#nav {
+    list-style: none;
+}
+
+#nav ul {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    display: none;
+}
+
+#nav li {
+    font-size: 24px;
+    float: left;
+    margin-left: 3px;
+    position: relative;
+    /*width: 100px;*/
+    /*height: 50px;*/
+}
+
+/*#nav button:link, nav button:active, nav button:visited {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}*/
+
+#nav button:hover {
+    color: blue;
+}
+
+#username {
+    background-color: #F0E0B2;
+}
+

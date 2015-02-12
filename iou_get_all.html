@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Iou Get All</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <script src="jscripts.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <div id="wrapper">
+            <div id="banner"></div>
+
+            <nav id="navigation">
+                <ul id="nav">
+                    <li><button id="inventory_get" onclick="nextLocation('inventory_get.html');">inventory_get</button></li>
+                    <li><button id="purchases_get" onclick="nextLocation('purchases_get.html');">purchases_get</button></li>
+                    <li><button id="purchases_get_all" onclick="nextLocation('purchases_get_all.html');">purchases_get_all</button></li>
+                    <li><button id="purchases_append" onclick="nextLocation('purchases_append.html');">purchases_append</button></li>
+                    <li><button id="payments_get" onclick="nextLocation('payments_get.html');">payments_get</button></li>
+                    <li><button id="payments_get_all" onclick="nextLocation('payments_get_all.html');">payments_get_all</button></li>
+                    <li><button id="payments_append" onclick="nextLocation('payments_append.html');">payments_append</button></li>
+                    <li><button id="iou_get" onclick="nextLocation('iou_get.html');">iou_get</button></li>
+                    <li><button id="iou_get_all" onclick="nextLocation('iou_get_all.html');">iou_get_all</button></li>
+                    <li><button id="beer_data_get" onclick="nextLocation('beer_data_get.html');">beer_data_get</button></li>
+                    <li><button id="user_edit" onclick="nextLocation('user_edit.html');">user_edit</button></li>
+                    <li><button id="inventory_append" onclick="nextLocation('inventory_append.html');">inventory_append</button></li>
+                </ul>
+            </nav>
+
+            <div id="content_area">
+                <label>Iou Get All</label><br><br>
+                <input id="username" name="username" placeholder="username" type="text"><br><br>
+                <input id="password" name="password" placeholder="password" type="password"><br><br>
+                <button id="submit_request" onclick="iou_get_all_request();">Submit Request</button><br><br>
+                <div id="status"></div>
+            </div>
+
+            <div id="sidebar">
+                <h2>This is the SideBar</h2>
+            </div>
+
+            <footer>
+                <p>This is the Footer</p>
+            </footer>
+        </div>
+    </body>
+</html>
