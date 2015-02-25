@@ -38,7 +38,7 @@ function testfunctable(request) {
 		var b1 = document.createElement('B');
 		b1.appendChild(document.createTextNode('Name: '));
 		td.appendChild(b1)
-		td.appendChild(document.createTextNode(inv.payload[i].name));
+		td.appendChild(document.createTextNode(inv.payload[i].namn));
 	        td.appendChild(document.createElement('BR'));	       
 		var b2 = document.createElement('B');
 		b2.appendChild(document.createTextNode('Count :'));
