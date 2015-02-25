@@ -229,3 +229,36 @@ function send_request(data) {
     hr.send(null); // Actually execute the request
     document.getElementById("status").innerHTML = "processing..";
 }
+
+function setLanguage (inputLang) {
+    $(function() {
+        var language = inputLang;
+        $.ajax({
+            url: 'languages.xml',
+            success: function(xml) {
+                $(xml).find('translation').each(function(){
+                    var id = $(this).attr('id');
+                    var text = "<p>" + $(this).find(language).text() + "</p>";
+                    $("" + id).html(text);
+                });
+            }
+        });
+    });
+
+}
+
+$(document).ready(function(){
+$("img.lang").on("click", function () {
+    if($(this).hasClass("sv")){
+        $("#swedish").addClass("hidden");
+        $("#english").removeClass("hidden");
+        setLanguage("english");  
+    }
+    else{
+        $("#swedish").removeClass("hidden");
+        $("#english").addClass("hidden");  
+        setLanguage("swedish");
+    }
+})
+});
+
