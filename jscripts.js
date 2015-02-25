@@ -29,10 +29,32 @@ function testfunctable(request) {
 	var tr = document.createElement('TR');
 	for(j = 0;j <5;j++){
 	    if(i<inv.payload.length) {
-	    text += "<b>Name</b>: " + inv.payload[i].namn + "</br> <b>Beer ID:</b>" + inv.payload[i].beer_id + " <b>Count:</b> " + inv.payload[i].count + " <b>Price:</b> " + inv.payload[i].price;
-	    var td = document.createElement('TD');
-            td.appendChild(document.createTextNode(text));
-            tr.appendChild(td);
+		//text += "Name: " + inv.payload[i].namn + "</br> <b>Beer ID:</b>" + inv.payload[i].beer_id + "Count:" + inv.payload[i].count + "Price:" + inv.payload[i].price;
+		//var textName = "Name: " + inv.payload[i].namn;
+		//var textCount = "Count: " + inv.payload[i].count;
+		//var textPrice = "Price: " + inv.payload[i].price;
+		
+		var td = document.createElement('TD');
+		var b1 = document.createElement('B');
+		b1.appendChild(document.createTextNode('Name: '));
+		td.appendChild(b1)
+		td.appendChild(document.createTextNode(inv.payload[i].name));
+	        td.appendChild(document.createElement('BR'));	       
+		var b2 = document.createElement('B');
+		b2.appendChild(document.createTextNode('Count :'));
+		td.appendChild(b2);
+		td.appendChild(document.createTextNode(inv.payload[i].count));
+		td.appendChild(document.createElement('BR'));	       		
+		var b3 = document.createElement('B');
+		b3.appendChild(document.createTextNode('Price :'));
+		td.appendChild(b3);
+		td.appendChild(document.createTextNode(inv.payload[i].price));
+		td.appendChild(document.createElement('BR'));
+		var btn = document.createElement("BUTTON");        // Create a <button> element
+		var t = document.createTextNode("BUY!!!");       // Create a text node
+		btn.appendChild(t);                                // Append the text to <button>
+		td.appendChild(btn);                    // Append <button> to <body>
+		tr.appendChild(td);
 		i++;
 	    }
 	}
