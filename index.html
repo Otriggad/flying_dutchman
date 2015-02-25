@@ -5,14 +5,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <script src="jquery.js" type="text/javascript"></script>
         <script src="jscripts.js" type="text/javascript"></script>
     </head>
     <body>
 
         <div id="wrapper">
             <div id="banner"></div>
-
-            <nav id="navigation">
+            <img src="Images/english.png" id="english" class="lang en" />
+            <img src="Images/swedish.png" id="swedish" class="hidden lang sv"/>
+                        <nav id="navigation">
                 <ul id="nav">
                     <li><button id="inventory_get" onclick="nextLocation('inventory_get.html');">inventory_get</button></li>
                     <li><button id="purchases_get" onclick="nextLocation('purchases_get.html');">purchases_get</button></li>
@@ -32,6 +34,7 @@
             <div id="content_area">
                 <h1>This is the Content Area</h1>
             </div>
+            <a href="" name="katter">Test fält</a>
             
             <div id="sidebar">
                 <h2>This is the SideBar</h2>

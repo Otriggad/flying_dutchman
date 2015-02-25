@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translations>
+	<translation id="a[name='katter']">
+		<english>
+			Engelskt test
+		</english>
+		<swedish>
+			Svenskt test
+		</swedish>
+	</translation>
+</translations>
