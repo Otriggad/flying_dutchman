@@ -107,3 +107,7 @@ footer {
     background-color: #F0E0B2;
 }
 
+table {
+    border-collapse:collapse;
+    background-color: white;
+}
