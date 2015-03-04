@@ -407,9 +407,11 @@ function send_request(data) {
     document.getElementById("status").innerHTML = "processing..";
 }
 
+
 function setLanguage (inputLang) {
     $(function() {
         var language = inputLang;
+        var $saveLanguage = localStorage.setItem("currentLang", inputLang);
         $.ajax({
             url: 'languages.xml',
             success: function(xml) {
@@ -424,7 +426,11 @@ function setLanguage (inputLang) {
 
 }
 
+
 $(document).ready(function(){
+    if(localStorage["currentLang"] == null){ localStorage.setItem("currentLang", "english") }
+    setLanguage(localStorage.getItem("currentLang"));
+
     $("img.lang").on("click", function () {
 	if($(this).hasClass("sv")){
             $("#swedish").addClass("hidden");
