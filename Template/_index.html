@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="_stylesheet.css">
+        <script src="jquery.js" type="text/javascript"></script>
+        <script src="jscripts.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div id="banner" onclick="nextLocation('_index.html');">Flying Dutchman 13 - Never Lost</div>
+        </div>
+        <div id="wrapper">
+            <nav id="navigation">
+                <ul id="nav">
+                    <li><button id="inventory" onclick="nextLocation('inventory_get.html');"></button></li>
+                    <li><button id="login" onclick="nextLocation('login.html');"></button></li>
+                    <li><a id="t1" name="inventory">Inventory</a></li>
+                    <li><a id="t2" name="login">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="languages">
+
+            <div id="lang" onclick="">Languages: </div>
+            <div id="eng" onclick="setLanguage('english')">English</div>
+            <div id="swe" onclick="setLanguage('swedish')">Svenska</div>
+        </div>
+        <div id="themes">
+            <div id="tms" name="themess" onclick="">Themes: </div>
+            <div id="basic" name="basic" onclick="">Basic</div>
+            <div id="other" name="other" onclick="">Other</div>
+        </div>
+    </body>
+</html>
