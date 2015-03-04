@@ -1,5 +1,5 @@
 
-function nextLocation(nextLocation) {
+function nextlocation(nextLocation) {
     //document.getElementById("myButtonN").onclick = function () {
     location.href = nextLocation;
     //};
@@ -12,6 +12,42 @@ function testfunc(request) {
 				text += "<b>Name</b>: " + inv.payload[i].namn + "</br> <b>Beer ID:</b>" + inv.payload[i].beer_id + " <b>Count:</b> " + inv.payload[i].count + " <b>Price:</b> " + inv.payload[i].price + "</br></br>";
 		}
 		return text;
+}
+
+function checkout() {
+    var usr = document.getElementById('username').value.toString();
+    var pass = document.getElementById('password').value.toString();
+    var obj = JSON.parse(data);
+    var data;
+    var data2;
+    var sum = 0;
+    var iou;
+    for (var i = 0;i < obj.items.length;i++) {
+	sum = sum + (obj.items[i].price * obj.items[i].count);
+    }
+    localStorage.setItem("usrAdmin",usr);
+    localStorage.setItem("passAdmin",pass);
+    ausr = localStorage.usrAdmin;
+    apass = localStorage.passAdmin;
+
+    /*iou = send_request(data);
+    if((iou-sum) < 1000) {
+	document.getElementById("status").innerHTML = "You can't afford this";
+	document.getElementById("checkout").innerHTML = "back";
+	return;
+    }*/
+
+    for(var i = 0;i < obj.items.length;i++) {
+	data = "username=" + ausr + "&password=" + apass + "&action=inventory_append" + 
+            "&beer_id=" + obj.item[i].id + "&amount=" + "-" + obj.items[i].count + "&price=" + obj.item[i].price;
+	send_request(data);
+	data2 = "username=" + usr + "&password=" + pass + "&action=purchases_append" + 
+            "&beer_id=" + obj.item[i].id
+	send_request(data2);
+    }
+    sessionStorage.cart = undefined;
+   
+    
 }
 
 //Carts should be represented by an json object {items:[{name,id,count,price}]}
@@ -35,7 +71,7 @@ function addToCart(data) {
 	var length =  obj.items.length
 	for (var i = 0;i <= length;i++) {
 	   if (i == obj.items.length) {
-		obj.items.push({"name":obj2.name,"id":obj2.id,"count":obj2.count,"price":p})
+	       obj.items.push({"name":obj2.name,"id":obj2.id,"count":obj2.count,"price":(obj2.count*obj2.price)})
 		var li1 = document.createElement('LI');
 		li1.setAttribute("id",obj.items[i].id);
 		li1.appendChild(document.createTextNode(obj.items[i].name));
@@ -52,22 +88,36 @@ function addToCart(data) {
 		obj.items[i].count = count;
 		obj.items[i].price = price*count;*/
 	     console.log(data);
-	    } else  if(obj.items[i].id == obj2.id) {		
-		obj.items[i].count += obj2.count;
-		obj.items[i].price += obj2.count*obj2.price;
-		return
+	   } else  if(obj.items[i].id == obj2.id) {
+	       obj.items[i].count += obj2.count;
+	       obj.items[i].price = obj2.price
+	       var li1 = document.getElementById(obj.items[i].id);
+	       while (li1.firstChild) li1.removeChild(li1.firstChild);
+	       li1.setAttribute("id",obj.items[i].id);
+	       li1.appendChild(document.createTextNode(obj.items[i].name));
+	       li1.appendChild(document.createElement('BR'));
+	       li1.appendChild(document.createTextNode(obj.items[i].count));
+	       li1.appendChild(document.createElement('BR'));
+	       li1.appendChild(document.createTextNode(obj.items[i].price*obj.items[i].count));
+	       li1.appendChild(document.createElement('BR'));
+	       li1.appendChild(document.createTextNode(obj.items[i].id));
+	       list.appendChild(li1);
+	       myListDiv.appendChild(list);
+	       jsonStr = JSON.stringify(obj);
+	       sessionStorage.cart = jsonStr;    
+	       return;
 	    }
 	}
     } else {
 	var p = (obj2.count * obj2.price)
-	obj = {"items":[{"name":obj2.name,"id":obj2.id,"count":obj2.count,"price":p}]}
+	obj = {"items":[{"name":obj2.name,"id":obj2.id,"count":obj2.count,"price":obj2.price}]}
 	var li1 = document.createElement('LI');
 	li1.setAttribute("id",obj.items[0].id);
 	li1.appendChild(document.createTextNode(obj.items[0].name));
 	li1.appendChild(document.createElement('BR'));
 	li1.appendChild(document.createTextNode(obj.items[0].count));
 	li1.appendChild(document.createElement('BR'));
-	li1.appendChild(document.createTextNode(obj.items[0].price));
+	li1.appendChild(document.createTextNode(p));
 	li1.appendChild(document.createElement('BR'));
 	li1.appendChild(document.createTextNode(obj.items[0].id));
 	list.appendChild(li1);
@@ -84,6 +134,7 @@ function addToCart(data) {
 
 function testfunctable(request) {
     var inv = JSON.parse(request);
+
     var text = "";
     var myTableDiv = document.getElementById("content_area");
     var table = document.createElement('TABLE');
@@ -102,7 +153,7 @@ function testfunctable(request) {
 		//var textName = "Name: " + inv.payload[i].namn;
 		//var textCount = "Count: " + inv.payload[i].count;
 		//var textPrice = "Price: " + inv.payload[i].price;
-		if ((inv.payload[i].namn && inv.payload[i].namn2) == "") {
+		if (inv.payload[i].namn == "" && inv.payload[i].namn2 == "") {
 		    i++;		    
 		} else {
 		    var tmp;
@@ -128,13 +179,19 @@ function testfunctable(request) {
 	            td.appendChild(document.createElement('BR'));	       
 		    var b2 = document.createElement('B');
 		    b2.setAttribute("name","cnt")
-		    b2.appendChild(document.createTextNode('Count :'));
+		    b2.appendChild(document.createTextNode('Count: '));
 		    td.appendChild(b2);
-		    td.appendChild(document.createTextNode(inv.payload[i].count));
+		    if (inv.payload[i].count > 0) {
+			td.appendChild(document.createTextNode(inv.payload[i].count));
+		    } else {
+			var tn = document.createTextNode(" Out of stock!");
+			
+			td.appendChild(tn);
+		    }
 		    td.appendChild(document.createElement('BR'));	       		
 		    var b3 = document.createElement('B');
 		    b3.setAttribute("name","prc");
-		    b3.appendChild(document.createTextNode('Price :'));
+		    b3.appendChild(document.createTextNode('Price: '));
 		    td.appendChild(b3);
 		    td.appendChild(document.createTextNode(inv.payload[i].price));
 		    td.appendChild(document.createElement('BR'));
@@ -149,10 +206,16 @@ function testfunctable(request) {
 		    var data = JSON.stringify(obj);
 		    
 		    //var obj = JSON.parse(data);
-		    btn.setAttribute("onclick","addToCart("+"'"+data+"'"+");");
-		    var t = document.createTextNode("Add");       // Create a text node
-		    btn.appendChild(t);                                // Append the text to <button>
+
+			btn.setAttribute("onclick","addToCart("+"'"+data+"'"+");");
+			var t = document.createTextNode("Add");       // Create a text node
+			btn.appendChild(t);                                // Append the text to <button>
+		 
 		    td.appendChild(btn);                    // Append <button> to <body>
+if(inv.payload[i].count <= 0) {
+			btn.setAttribute("class","hidden")
+		    }
+		    
 		    tr.appendChild(td);
 		    i++;
 		    j++;
@@ -168,7 +231,14 @@ function testfunctable(request) {
 
 function load_cart() {
     if (sessionStorage.getItem("cart") == undefined) {
+	var cdiv = document.getElementById("cart");
+	var ld = document.getElementById("cList");
+	if(ld != null) {
+	while (ld.firstChild) ld.removeChild(ld.firstChild);
+	    cdiv.appendChild(ld);
+	}
 	return;
+	
     } else {
 	var obj = JSON.parse(sessionStorage.getItem("cart"));
 	var myListDiv = document.getElementById("cart");
@@ -186,7 +256,7 @@ function load_cart() {
 	    li1.appendChild(document.createTextNode(obj.items[i].id));
 	    list.appendChild(li1);
 	}
-	myListDiv.appendChild(list);
+
     }
 }
 
@@ -410,7 +480,7 @@ function send_request(data) {
 function setLanguage (inputLang) {
     $(function() {
         var language = inputLang;
-        var $saveLanguage = localStorage.setItem("currentLang", inputLang);
+	var $saveLanguage = localStorage.setItem("currentLang", inputLang);
         $.ajax({
             url: 'languages.xml',
             success: function(xml) {
@@ -422,8 +492,8 @@ function setLanguage (inputLang) {
             }
         });
     });
-
 }
+
 
 $(document).ready(function(){
      if(localStorage["currentLang"] == null){ localStorage.setItem("currentLang", "english") }
@@ -455,5 +525,4 @@ $(document).ready(function(){
 
     })
 });
-
 
