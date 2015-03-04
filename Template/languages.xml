@@ -40,28 +40,4 @@
 			Annat
 		</swedish>
 	</translation>
-	<translation id="b[name='nm']">
-	  <english>
-	    Name:
-	  </english>
-	  <swedish>
-	    Namn:
-	  </swedish>
-	</translation>
-	  <translation id="b[name='cnt']">
-	  <english>
-	    Antal:
-	  </english>
-	  <swedish>
-	    Number:
-	  </swedish>
-	  </translation>
-	  <translation id="b[name='prc']">
-	  <english>
-	    Price:
-	  </english>
-	  <swedish>
-	    Pris:
-	  </swedish>
-	  </translation>
 </translations>
