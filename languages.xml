@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <translations>
-	<translation id="a[name='katter']">
-	  <english>
-	    Engelskt test
-	  </english>
-	  <swedish>
-	    Svenskt test
-	  </swedish>
+	<translation id="a[name='inventory']">
+		<english>
+			Inventory
+		</english>
+		<swedish>
+			Lager
+		</swedish>
+	</translation>
+	<translation id="a[name='login']">
+		<english>
+			Login
+		</english>
+		<swedish>
+			Inloggning
+		</swedish>
+	</translation>
+	<translation id="div[name='themess']">
+		<english>
+			Themes
+		</english>
+		<swedish>
+			Teman
+		</swedish>
+	</translation>
+	<translation id="div[name='basic']">
+		<english>
+			Basic
+		</english>
+		<swedish>
+			Standard
+		</swedish>
+	</translation>
+	<translation id="div[name='other']">
+		<english>
+			Other
+		</english>
+		<swedish>
+			Annat
+		</swedish>
 	</translation>
 	<translation id="b[name='nm']">
 	  <english>
@@ -24,7 +56,6 @@
 	    Number:
 	  </swedish>
 	  </translation>
-
 	  <translation id="b[name='prc']">
 	  <english>
 	    Price:
