@@ -13,7 +13,9 @@
     font-family: arial; 
     visibility: hidden; 
 }
-
+button.hidden {
+    display:none
+}
 table#beer { 
     margin: 0 auto;
     border-collapse: collapse;

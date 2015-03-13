@@ -255,7 +255,7 @@ function addToCart(data) {
         list = document.getElementById("cList");
     }
 
-    if (!sessionStorage.cart == undefined) {
+    if (sessionStorage.cart != undefined) {
         jsonStr = sessionStorage.cart;
         obj = JSON.parse(jsonStr);
         var length = obj.items.length
@@ -296,7 +296,7 @@ function addToCart(data) {
                 myListDiv.appendChild(list);
                 jsonStr = JSON.stringify(obj);
                 sessionStorage.cart = jsonStr;
-                sum += obj.items[i].price * obj.items[i].count;
+                sum += obj.items[i].price * obj2.count;
                 document.getElementById("span_total").innerHTML = sum;
                 return;
             }
