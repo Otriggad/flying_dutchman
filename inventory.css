@@ -280,12 +280,6 @@ body {
     -webkit-animation-timing-function: linear; 
 }
 
-
-#user_info { 
-    float:right;
-    display:none;
-} 
-
 #cart { 
     float: left;
     position: static;
