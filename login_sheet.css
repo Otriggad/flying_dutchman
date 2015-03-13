@@ -1,0 +1,300 @@
+html, body {
+    background-color: #310010;
+    font-family: Verdana, Geneva, sans-serif;
+    /*background-size: cover;*/
+    width: 100%;
+    height: 100%;
+}
+
+#header {
+    position: relative;
+    /*height: 15%;*/
+    background-color: #000E1B;
+    margin: 2% 2% 2% 2%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#header:hover {
+    border: 2px solid #CC9900;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 20px 4px #CC9900;
+}
+
+#banner {
+    position: relative;
+    margin: 2% 10% 2% 10%;
+    padding: 1% 0% 1% 0%;
+    cursor: pointer;
+    background-color: #310010;
+    color: #CC9900;
+    text-align: center;
+    font-size: 1.6em;
+    text-shadow: 0.035em 0.035em black;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#banner:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#history {
+    position: relative;
+    background-color: #000E1B;
+    margin: 2% 2% 2% 2%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#history:hover {
+    border: 2px solid #CC9900;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 20px 4px #CC9900;
+}
+
+#hist {
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 25%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 10% 2% 10%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#hist:hover {
+    border: 2px solid #CC9900;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 20px 4px #CC9900;
+}
+
+#home {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #310010;
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 20%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 2% 2% 0%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#home:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#login {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #310010;
+    filter: alpha(opacity = 0.8); /* IE */
+    -moz-opacity: 0.8; /* Mozilla */
+    opacity: 0.8; /* CSS3 */
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 20%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 10% 2% 0%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 20px 4px #CC9900;
+}
+
+#login:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#wrapper {
+    position: relative;
+    /*height: 50%;*/
+    margin: 4% 2% 2% 2%;
+    background-color: #000E1B;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#wrapper:hover {
+    border: 2px solid #CC9900;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#staff {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #310010;
+    color: #CC9900;
+    font-size: 1.6em;
+    width: 35%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 5% 7.5% 5% 10%;
+    padding: 7.5% 0% 7.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#staff:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#customer {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #310010;
+    color: #CC9900;
+    font-size: 1.6em;
+    width: 35%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 5% 10% 5% 0%;
+    padding: 7.5% 0% 7.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#customer:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+@-webkit-keyframes rot1 {
+    0% { -webkit-transform: rotate(0deg); }
+    25% { -webkit-transform: rotate(0.5deg); }
+    50% { -webkit-transform: rotate(0deg); }
+    75% { -webkit-transform: rotate(-0.5deg); }
+    100% { -webkit-transform: rotate(0deg); }
+}
+
+@-webkit-keyframes trans1 {
+    0% { -webkit-transform: translateX(0%); }
+    25% { -webkit-transform: translateX(5%); }
+    50% { -webkit-transform: translateX(0%); }
+    75% { -webkit-transform: translateX(-5%); }
+    100% { -webkit-transform: translateX(0%); }
+}
+
+@-webkit-keyframes bord1 {
+    0% {
+        border: 2px solid #CC9900;
+        -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+        -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+        box-shadow: 0px 0px 20px 4px #CC9900;
+    }
+    50% {
+        border: 2px solid black;
+        -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+        -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+        box-shadow: 0px 0px 10px 2px #CC9900;
+    }
+    100% {
+        border: 2px solid #CC9900;
+        -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+        -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+        box-shadow: 0px 0px 20px 4px #CC9900;
+    }
+}

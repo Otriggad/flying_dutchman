@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="_stylesheet.css">
+        <script src="jscripts.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="banner">Flying Dutchman 13 - Never Lost</div>
+
+            <nav id="navigation">
+                <ul id="nav">
+                    <li><button id="inventory" onclick="nextLocation('inventory_get.html');">Inventory</button></li>
+                    <li><button id="login" onclick="nextLocation('purchases_get.html');">Login</button></li>
+                    <li><button id="member" onclick="nextLocation('purchases_get.html');">Become Member</button></li>
+                </ul>
+            </nav>
+        </div>
+    </body>
+</html>
+<!--
+/*html { 
+  background: url(./Images/welcome.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    background-size: cover;
+    background-color: #000E1B;
+}
+
+body p {
+    font-size: 0.8em;
+    line-height: 1.28;
+}
+
+#wrapper {
+    position: absolute;
+    background-color: white;
+    margin: 50px 50px 50px 50px;
+}
+
+#banner {
+    position: relative;
+    background-color: #000E1B;
+    color: white;
+    font-size: 3.8em;
+    margin: 50px 50px 50px 50px;
+    /*text-shadow: 0.025em 0.025em ;/*
+    padding: 10px;
+    /*background-color: #E3E3E3;*/
+    /*width: 100px;*/
+    /*height: 250px;*/
+    /*padding: 5px;*/
+    /*border: 5px solid #A37A8E;*/
+    /*background-image: url(./Images/welcome.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 5px solid #dedede;    
+    width: 960px;
+    height: 575px;*/
+}
+
+
+#navigation {
+    position: relative;
+    height: 500px;
+    margin: 50px 25px 50px 25px;
+    border: 3px solid #E3E3E3;
+    margin-top: 10px;
+    text-shadow: 0.1em 0.1em #333;
+    //background-image: url(./Images/welcome.jpg);
+    background-color: #310010;
+}
+
+#nav {
+    list-style: none;
+}
+
+#nav ul {}
+
+#nav li {   }
+
+#nav li button {
+    float: left;
+    margin-left: 40px;
+    margin-top: 40px;
+    font-size: 1.2em;
+    height: 300px;
+    width: 350px;
+}
+
+#inventory {
+    background-color: black;
+    background-image: url(./Images/cellar.jpg);
+    background-size: 270px 270px;
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    color: white;
+    display:table-cell;
+    vertical-align: bottom;
+    border: 5px solid;    
+    border-radius: 5px;
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s;
+
+    -webkit-box-shadow: 2px 2px 2px black;
+    -moz-box-shadow: 2px 2px 2px #84261a;
+    box-shadow: 5px 5px 5px 5px black;
+
+}
+
+#login {
+    background-color: black;
+    background-image: url(./Images/login.jpg);
+    background-size: 270px 270px;
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    color: white;
+    display:table-cell;
+    vertical-align: bottom;
+    border: 5px solid;    
+    border-radius: 5px;
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s;
+
+    -webkit-box-shadow: 2px 2px 2px black;
+    -moz-box-shadow: 2px 2px 2px #84261a;
+    box-shadow: 5px 5px 5px 5px black;
+
+}
+
+#member {
+    background-color: black;
+    background-image: url(./Images/login2.jpg);
+    background-size: 270px 270px;
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    color: white;
+    display:table-cell;
+    vertical-align: bottom;
+    border: 5px solid;    
+    border-radius: 5px;
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s;
+
+    -webkit-box-shadow: 2px 2px 2px black;
+    -moz-box-shadow: 2px 2px 2px #84261a;
+    box-shadow: 5px 5px 5px 5px black;
+
+}
+
+/*#nav button:link, nav button:active, nav button:visited {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}*/
+
+#inventory:hover {
+    background-color: white;
+    /*background-color: #F0E0B2;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-transition: all 3s .5s;
+    -moz-transition: all 3s .5s;
+    -o-transition: all 3s .5s;
+    transition: all 3s .5s;
+    -webkit-transform: translate(900px, 0);
+    -moz-transform: translate(900px, 0);
+    -o-transform: translate(900px, 0);
+    transform: translate(900px, 0);*/
+}
+
+-->

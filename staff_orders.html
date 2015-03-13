@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <title>Purchases and Orders</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="login_sheet.css">
+        <link rel="stylesheet" type="text/css" href="staff_orders_sheet.css">
         <script src="jscripts.js" type="text/javascript"></script>
     </head>
     <body>
@@ -15,10 +15,16 @@
             <div id="hist">Navigation: </div>
             <div id="home" onclick="nextLocation('index.html');">Home</div>
             <div id="login" onclick="nextLocation('login.html');">Login</div>
+            <div id="staff" onclick="nextLocation('staff.html');">Staff</div>
+            <div id="orders" onclick="nextLocation('staff_orders.html');">Orders</div>
         </div>
         <div id="wrapper">
-            <div id="staff" onclick="nextLocation('staff.html');">Staff</div>
-            <div id="customer" onclick="">Customer</div>
+            <div id="reg_order" onclick="">Register Order</div>
+            <div id="cancel_order" onclick="">Cancel Order</div>
+            <div id="edit_order" onclick="">Edit Order</div>
+            <div id="print_receipt" onclick="">Print Receipt</div>
+            <div id="track_orders" onclick="">Track Orders</div>
+            <div id="split_bills" onclick="">Split Bills</div>
         </div>
     </body>
 </html>

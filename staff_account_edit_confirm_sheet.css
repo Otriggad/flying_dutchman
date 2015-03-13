@@ -1,65 +1,3 @@
-/*
-body {
-    background-color: #310010;
-    font-family: Verdana, Geneva, sans-serif;
-    background-size: cover;
-    width: 100%;
-}
-
-body p {}
-
-#header {
-    position: relative;
-    background-color: #000E1B;
-    margin: 25px 10px 0px 10px;
-    border: 2px solid black;
-    border-radius: 25px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#header:hover {
-    border: 2px solid #CC9900;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
-    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
-    box-shadow: 0px 0px 20px 4px #CC9900;
-}
-
-#banner {
-    position: relative;
-    cursor: pointer;
-    background-color: #310010;
-    color: #CC9900;
-    font-size: 3.8em;
-    text-shadow: 0.035em 0.035em black;
-    margin: 50px 50px 50px 50px;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 20px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#banner:hover {
-    -webkit-animation-name: bord1; 
-    -webkit-animation-duration: 2.0s; 
-    -webkit-transform-origin:50% 50%; 
-    -webkit-animation-iteration-count: infinite; 
-    -webkit-animation-timing-function: linear; 
-}
-*/
-
 html, body {
     background-color: #310010;
     font-family: Verdana, Geneva, sans-serif;
@@ -121,12 +59,221 @@ html, body {
     -webkit-animation-timing-function: linear; 
 }
 
+#history {
+    position: relative;
+    background-color: #000E1B;
+    margin: 2% 2% 2% 2%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#history:hover {
+    border: 2px solid #CC9900;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 20px 4px #CC9900;
+}
+
+#hist {
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 12%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 5% 2% 10%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#hist:hover {
+    border: 2px solid #CC9900;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 20px 4px #CC9900;
+}
+
+#home {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #310010;
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 10%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 2% 2% 0%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#home:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#login {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #310010;
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 10%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 2% 2% 0%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#login:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#staff {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #310010;
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 10%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 2% 2% 0%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#staff:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#account {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #310010;
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 10%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 2% 2% 0%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#account:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#edit {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #310010;
+    filter: alpha(opacity = 0.8); /* IE */
+    -moz-opacity: 0.8; /* Mozilla */
+    opacity: 0.8; /* CSS3 */
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 10%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 5% 2% 0%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 20px 4px #CC9900;
+}
+
+#edit:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
 #wrapper {
     position: relative;
+    /*height: 50%;*/
+    margin: 4% 2% 2% 2%;
     background-color: #000E1B;
     border: 2px solid black;
     border-radius: 25px;
-    margin: 50px 10px 0px 10px;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
     transition: all 1.0s;
@@ -142,18 +289,15 @@ html, body {
     transition: all 1.0s;
     -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
     -moz-box-shadow: 0px 0px 20px 4px #CC9900;
-    box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
 }
 
-
-#navigation {
+#in_wrapper {
     position: relative;
+    margin: 2% 10% 2% 10%;
     background-color: #310010;
-    margin: 50px 50px 50px 50px;
-    height: 420px;
     border: 2px solid black;
     border-radius: 25px;
-    text-shadow: 0.1em 0.1em #333;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
     transition: all 1.0s;
@@ -162,151 +306,19 @@ html, body {
     box-shadow: 0px 0px 10px 2px #CC9900;
 }
 
-#navigation:hover {
+#in_wrapper:hover {
     border: 2px solid #CC9900;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
     transition: all 1.0s;
     -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
     -moz-box-shadow: 0px 0px 20px 4px #CC9900;
-    box-shadow: 0px 0px 20px 4px #CC9900;
-}
-
-#nav {
-    list-style: none;
-}
-
-#nav li button {
-    position: relative;
-    float: left;
-    cursor: pointer;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 525px;
-    height: 350px;
-    background-color: black;
-    background-size: 505px 330px;
-    background-repeat: no-repeat;
-    background-position: 5px 5px;
-    border: 5px solid black; 
-    border-radius: 25px;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
     box-shadow: 0px 0px 10px 2px #CC9900;
 }
-
-#nav li button:hover {
-    border-radius: 30px;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-    /*-webkit-transform: rotate(0.5deg);*/
-    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
-    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
-    box-shadow: 0px 0px 20px 4px #CC9900;
-    -webkit-animation-name: rot1; 
-    -webkit-animation-duration: 2.0s; 
-    -webkit-transform-origin:50% 50%; 
-    -webkit-animation-iteration-count: infinite; 
-    -webkit-animation-timing-function: linear; 
-}
-/*
-#nav li button:active {
-    background-color: black;
-    border-radius: 50px;
-    -webkit-transition: all 2.0s;
-    -moz-transition: all 2.0s;
-    transition: all 2.0s;
-    -webkit-box-shadow: 0px 0px 30px 6px #CC9900;
-    -moz-box-shadow: 0px 0px 30px 6px #CC9900;
-    box-shadow: 0px 0px 30px 6px #CC9900;
-    -webkit-transform: rotate(360deg);
-}
-*/
-#inventory {
-    background-image: url(./Images/cellar1.png);
-    margin-left: 0px;
-    margin-right: 25px;
-
-}
-
-#login {
-    background-image: url(./Images/login2.jpg);
-    margin-left: 50px;
-    margin-right: 25px;
-}
-
-#t1 {
+#in_wrapper2 {
     position: relative;
-    display: inline-block;
-    float: left;
-    cursor: pointer;
-    color: #CC9900;
-    font-size: 1.8em;
-    text-shadow: 0.035em 0.035em black;
-    margin: -100px 0px 0px 25px;
-    background-color: transparent;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 10px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#t2 {
-    position: relative;
-    display: inline-block;
-    float: right ;
-    cursor: pointer;
-    color: #CC9900;
-    font-size: 1.8em;
-    text-shadow: 0.035em 0.035em black;
-    margin: -300px 75px 0px 0px;
-    background-color: transparent;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 10px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#t1:hover {
-    border-radius: 30px;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-    -webkit-box-shadow: 0px 0px 40px 8px #CC9900;
-    -moz-box-shadow: 0px 0px 40px 8px #CC9900;
-    box-shadow: 0px 0px 40px 8px #CC9900;
-}
-
-#t2:hover {
-    border-radius: 30px;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-    -webkit-box-shadow: 0px 0px 40px 8px #CC9900;
-    -moz-box-shadow: 0px 0px 40px 8px #CC9900;
-    box-shadow: 0px 0px 40px 8px #CC9900;
-}
-
-#languages {
-    position: relative;
-    display: inline-block;
-    float:left;
+    margin: 2% 10% 2% 10%;
     background-color: #000E1B;
-    margin: 25px 0px 25px 10px;
     border: 2px solid black;
     border-radius: 25px;
     -webkit-transition: all 1.0s;
@@ -317,29 +329,29 @@ html, body {
     box-shadow: 0px 0px 10px 2px #CC9900;
 }
 
-#languages:hover {
+#in_wrapper2:hover {
     border: 2px solid #CC9900;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
     transition: all 1.0s;
     -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
     -moz-box-shadow: 0px 0px 20px 4px #CC9900;
-    box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
 }
 
-#lang {
+#confirm {
     position: relative;
     display: inline-block;
     background-color: transparent;
     color: #CC9900;
     font-size: 1.2em;
-    width: 150px;
+    width: 80%;
     text-align: center;
     text-shadow: 0.035em 0.035em black;
-    margin: 40px 10px 40px 20px;
+    margin: 2% 10% 2% 10%;
+    padding: 0.5% 0% 0.5% 0%;
     border: 2px solid black;
     border-radius: 25px;
-    padding: 10px;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
     transition: all 1.0s;
@@ -348,7 +360,7 @@ html, body {
     box-shadow: 0px 0px 10px 2px #CC9900;
 }
 
-#lang:hover {
+#confirm:hover {
     border: 2px solid #CC9900;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
@@ -358,73 +370,17 @@ html, body {
     box-shadow: 0px 0px 20px 4px #CC9900;
 }
 
-
-#eng {
+#message {
     position: relative;
     display: inline-block;
-    cursor: pointer;
     background-color: #310010;
     color: #CC9900;
     font-size: 1.2em;
-    width: 100px;
+    width: 80%;
     text-align: center;
     text-shadow: 0.035em 0.035em black;
-    margin: 40px 10px 40px 20px;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 10px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#eng:hover {
-    -webkit-animation-name: bord1; 
-    -webkit-animation-duration: 2.0s; 
-    -webkit-transform-origin:50% 50%; 
-    -webkit-animation-iteration-count: infinite; 
-    -webkit-animation-timing-function: linear; 
-}
-
-#swe {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    background-color: #310010;
-    color: #CC9900;
-    font-size: 1.2em;
-    width: 100px;
-    text-align: center;
-    text-shadow: 0.035em 0.035em black;
-    margin: 40px 20px 40px 10px;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 10px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#swe:hover {
-    -webkit-animation-name: bord1; 
-    -webkit-animation-duration: 2.0s; 
-    -webkit-transform-origin:50% 50%; 
-    -webkit-animation-iteration-count: infinite; 
-    -webkit-animation-timing-function: linear; 
-}
-
-#themes {
-    position: relative;
-    display: inline-block;
-    float: right;
-    background-color: #000E1B;
-    margin: 25px 10px 25px 0px;
+    margin: 2% 10% 2% 10%;
+    padding: 0.5% 0% 0.5% 0%;
     border: 2px solid black;
     border-radius: 25px;
     -webkit-transition: all 1.0s;
@@ -435,7 +391,7 @@ html, body {
     box-shadow: 0px 0px 10px 2px #CC9900;
 }
 
-#themes:hover {
+#message:hover {
     border: 2px solid #CC9900;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
@@ -445,51 +401,19 @@ html, body {
     box-shadow: 0px 0px 20px 4px #CC9900;
 }
 
-#tms {
+#ok {
     position: relative;
-    display: inline-block;
-    background-color: transparent;
-    color: #CC9900;
-    font-size: 1.2em;
-    width: 150px;
-    text-align: center;
-    text-shadow: 0.035em 0.035em black;
-    margin: 40px 10px 40px 20px;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 10px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#tms:hover {
-    border: 2px solid #CC9900;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
-    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
-    box-shadow: 0px 0px 20px 4px #CC9900;
-}
-
-#basic {
-    position: relative;
-    display: inline-block;
     cursor: pointer;
     background-color: #310010;
     color: #CC9900;
     font-size: 1.2em;
-    width: 100px;
+    width: 30%;
     text-align: center;
     text-shadow: 0.035em 0.035em black;
-    margin: 40px 10px 40px 20px;
+    margin: 4% 35% 2% 35%;
+    padding: 0.5% 0% 0.5% 0%;
     border: 2px solid black;
     border-radius: 25px;
-    padding: 10px;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
     transition: all 1.0s;
@@ -498,37 +422,7 @@ html, body {
     box-shadow: 0px 0px 10px 2px #CC9900;
 }
 
-#basic:hover {
-    -webkit-animation-name: bord1; 
-    -webkit-animation-duration: 2.0s; 
-    -webkit-transform-origin:50% 50%; 
-    -webkit-animation-iteration-count: infinite; 
-    -webkit-animation-timing-function: linear; 
-}
-
-#other {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    background-color: #310010;
-    color: #CC9900;
-    font-size: 1.2em;
-    width: 100px;
-    text-align: center;
-    text-shadow: 0.035em 0.035em black;
-    margin: 40px 20px 40px 10px;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 10px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#other:hover {
+#ok:hover {
     -webkit-animation-name: bord1; 
     -webkit-animation-duration: 2.0s; 
     -webkit-transform-origin:50% 50%; 
@@ -542,6 +436,14 @@ html, body {
     50% { -webkit-transform: rotate(0deg); }
     75% { -webkit-transform: rotate(-0.5deg); }
     100% { -webkit-transform: rotate(0deg); }
+}
+
+@-webkit-keyframes trans1 {
+    0% { -webkit-transform: translateX(0%); }
+    25% { -webkit-transform: translateX(5%); }
+    50% { -webkit-transform: translateX(0%); }
+    75% { -webkit-transform: translateX(-5%); }
+    100% { -webkit-transform: translateX(0%); }
 }
 
 @-webkit-keyframes bord1 {

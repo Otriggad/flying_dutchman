@@ -1,76 +1,13 @@
-/*
-body {
-    background-color: #310010;
-    font-family: Verdana, Geneva, sans-serif;
-    background-size: cover;
-    width: 100%;
-}
-
-body p {}
-
-#header {
-    position: relative;
-    background-color: #000E1B;
-    margin: 25px 10px 0px 10px;
-    border: 2px solid black;
-    border-radius: 25px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#header:hover {
-    border: 2px solid #CC9900;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
-    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
-    box-shadow: 0px 0px 20px 4px #CC9900;
-}
-
-#banner {
-    position: relative;
-    cursor: pointer;
-    background-color: #310010;
-    color: #CC9900;
-    font-size: 3.8em;
-    text-shadow: 0.035em 0.035em black;
-    margin: 50px 50px 50px 50px;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 20px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#banner:hover {
-    -webkit-animation-name: bord1; 
-    -webkit-animation-duration: 2.0s; 
-    -webkit-transform-origin:50% 50%; 
-    -webkit-animation-iteration-count: infinite; 
-    -webkit-animation-timing-function: linear; 
-}
-*/
 
 html, body {
     background-color: #310010;
     font-family: Verdana, Geneva, sans-serif;
-    /*background-size: cover;*/
     width: 100%;
     height: 100%;
 }
 
 #header {
     position: relative;
-    /*height: 15%;*/
     background-color: #000E1B;
     margin: 2% 2% 2% 2%;
     border: 2px solid black;
@@ -111,31 +48,15 @@ html, body {
     -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
     -moz-box-shadow: 0px 0px 10px 2px #CC9900;
     box-shadow: 0px 0px 10px 2px #CC9900;
+    
+    -webkit-animation-name: move1; 
+    -webkit-animation-duration: 20.0s; 
+    -webkit-transform-origin: 50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
 }
 
 #banner:hover {
-    -webkit-animation-name: bord1; 
-    -webkit-animation-duration: 2.0s; 
-    -webkit-transform-origin:50% 50%; 
-    -webkit-animation-iteration-count: infinite; 
-    -webkit-animation-timing-function: linear; 
-}
-
-#wrapper {
-    position: relative;
-    background-color: #000E1B;
-    border: 2px solid black;
-    border-radius: 25px;
-    margin: 50px 10px 0px 10px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#wrapper:hover {
     border: 2px solid #CC9900;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
@@ -143,170 +64,21 @@ html, body {
     -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
     -moz-box-shadow: 0px 0px 20px 4px #CC9900;
     box-shadow: 0px 0px 20px 4px #CC9900;
-}
-
-
-#navigation {
-    position: relative;
-    background-color: #310010;
-    margin: 50px 50px 50px 50px;
-    height: 420px;
-    border: 2px solid black;
-    border-radius: 25px;
-    text-shadow: 0.1em 0.1em #333;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#navigation:hover {
-    border: 2px solid #CC9900;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
-    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
-    box-shadow: 0px 0px 20px 4px #CC9900;
-}
-
-#nav {
-    list-style: none;
-}
-
-#nav li button {
-    position: relative;
-    float: left;
-    cursor: pointer;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 525px;
-    height: 350px;
-    background-color: black;
-    background-size: 505px 330px;
-    background-repeat: no-repeat;
-    background-position: 5px 5px;
-    border: 5px solid black; 
-    border-radius: 25px;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#nav li button:hover {
-    border-radius: 30px;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-    /*-webkit-transform: rotate(0.5deg);*/
-    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
-    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
-    box-shadow: 0px 0px 20px 4px #CC9900;
-    -webkit-animation-name: rot1; 
+    /*-webkit-animation-name: bord1; 
     -webkit-animation-duration: 2.0s; 
     -webkit-transform-origin:50% 50%; 
     -webkit-animation-iteration-count: infinite; 
-    -webkit-animation-timing-function: linear; 
-}
-/*
-#nav li button:active {
-    background-color: black;
-    border-radius: 50px;
-    -webkit-transition: all 2.0s;
-    -moz-transition: all 2.0s;
-    transition: all 2.0s;
-    -webkit-box-shadow: 0px 0px 30px 6px #CC9900;
-    -moz-box-shadow: 0px 0px 30px 6px #CC9900;
-    box-shadow: 0px 0px 30px 6px #CC9900;
-    -webkit-transform: rotate(360deg);
-}
-*/
-#inventory {
-    background-image: url(./Images/cellar1.png);
-    margin-left: 0px;
-    margin-right: 25px;
-
-}
-
-#login {
-    background-image: url(./Images/login2.jpg);
-    margin-left: 50px;
-    margin-right: 25px;
-}
-
-#t1 {
-    position: relative;
-    display: inline-block;
-    float: left;
-    cursor: pointer;
-    color: #CC9900;
-    font-size: 1.8em;
-    text-shadow: 0.035em 0.035em black;
-    margin: -100px 0px 0px 25px;
-    background-color: transparent;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 10px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#t2 {
-    position: relative;
-    display: inline-block;
-    float: right ;
-    cursor: pointer;
-    color: #CC9900;
-    font-size: 1.8em;
-    text-shadow: 0.035em 0.035em black;
-    margin: -300px 75px 0px 0px;
-    background-color: transparent;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 10px;
-    -webkit-transition: all 1.0s;
-    -moz-transition: all 1.0s;
-    transition: all 1.0s;
-    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
-    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
-    box-shadow: 0px 0px 10px 2px #CC9900;
-}
-
-#t1:hover {
-    border-radius: 30px;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-    -webkit-box-shadow: 0px 0px 40px 8px #CC9900;
-    -moz-box-shadow: 0px 0px 40px 8px #CC9900;
-    box-shadow: 0px 0px 40px 8px #CC9900;
-}
-
-#t2:hover {
-    border-radius: 30px;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-    -webkit-box-shadow: 0px 0px 40px 8px #CC9900;
-    -moz-box-shadow: 0px 0px 40px 8px #CC9900;
-    box-shadow: 0px 0px 40px 8px #CC9900;
+    -webkit-animation-timing-function: linear; */
 }
 
 #languages {
     position: relative;
     display: inline-block;
     float:left;
+    width: 40%;
     background-color: #000E1B;
-    margin: 25px 0px 25px 10px;
+    margin: 1% 0% 2% 2%;
+    padding: 0.5% 0% 0.5% 0%;
     border: 2px solid black;
     border-radius: 25px;
     -webkit-transition: all 1.0s;
@@ -333,13 +105,13 @@ html, body {
     background-color: transparent;
     color: #CC9900;
     font-size: 1.2em;
-    width: 150px;
+    width: 30%;
     text-align: center;
     text-shadow: 0.035em 0.035em black;
-    margin: 40px 10px 40px 20px;
+    margin: 2% 2% 2% 5%;
+    padding: 1% 0% 1% 0%;
     border: 2px solid black;
     border-radius: 25px;
-    padding: 10px;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
     transition: all 1.0s;
@@ -358,7 +130,6 @@ html, body {
     box-shadow: 0px 0px 20px 4px #CC9900;
 }
 
-
 #eng {
     position: relative;
     display: inline-block;
@@ -366,13 +137,13 @@ html, body {
     background-color: #310010;
     color: #CC9900;
     font-size: 1.2em;
-    width: 100px;
+    width: 25%;
     text-align: center;
     text-shadow: 0.035em 0.035em black;
-    margin: 40px 10px 40px 20px;
+    margin: 2% 2% 2% 0%;
+    padding: 1% 0% 1% 0%;
     border: 2px solid black;
     border-radius: 25px;
-    padding: 10px;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
     transition: all 1.0s;
@@ -396,13 +167,13 @@ html, body {
     background-color: #310010;
     color: #CC9900;
     font-size: 1.2em;
-    width: 100px;
+    width: 25%;
     text-align: center;
     text-shadow: 0.035em 0.035em black;
-    margin: 40px 20px 40px 10px;
+    margin: 2% 2% 2% 0%;
+    padding: 1% 0% 1% 0%;
     border: 2px solid black;
     border-radius: 25px;
-    padding: 10px;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
     transition: all 1.0s;
@@ -422,9 +193,10 @@ html, body {
 #themes {
     position: relative;
     display: inline-block;
-    float: right;
+    width: 40%;
     background-color: #000E1B;
-    margin: 25px 10px 25px 0px;
+    margin: 1% 2% 2% 15%;
+    padding: 0.5% 0% 0.5% 0%;
     border: 2px solid black;
     border-radius: 25px;
     -webkit-transition: all 1.0s;
@@ -451,13 +223,13 @@ html, body {
     background-color: transparent;
     color: #CC9900;
     font-size: 1.2em;
-    width: 150px;
+    width: 30%;
     text-align: center;
     text-shadow: 0.035em 0.035em black;
-    margin: 40px 10px 40px 20px;
+    margin: 2% 2% 2% 5%;
+    padding: 1% 0% 1% 0%;
     border: 2px solid black;
     border-radius: 25px;
-    padding: 10px;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
     transition: all 1.0s;
@@ -483,13 +255,13 @@ html, body {
     background-color: #310010;
     color: #CC9900;
     font-size: 1.2em;
-    width: 100px;
+    width: 25%;
     text-align: center;
     text-shadow: 0.035em 0.035em black;
-    margin: 40px 10px 40px 20px;
+    margin: 2% 2% 2% 0%;
+    padding: 1% 0% 1% 0%;
     border: 2px solid black;
     border-radius: 25px;
-    padding: 10px;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
     transition: all 1.0s;
@@ -513,13 +285,13 @@ html, body {
     background-color: #310010;
     color: #CC9900;
     font-size: 1.2em;
-    width: 100px;
+    width: 25%;
     text-align: center;
     text-shadow: 0.035em 0.035em black;
-    margin: 40px 20px 40px 10px;
+    margin: 2% 2% 2% 0%;
+    padding: 1% 0% 1% 0%;
     border: 2px solid black;
     border-radius: 25px;
-    padding: 10px;
     -webkit-transition: all 1.0s;
     -moz-transition: all 1.0s;
     transition: all 1.0s;
@@ -536,12 +308,183 @@ html, body {
     -webkit-animation-timing-function: linear; 
 }
 
+#wrapper {
+    position: relative;
+    margin: 2% 2% 2% 2%;
+    background-color: #000E1B;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#wrapper:hover {
+    border: 2px solid #CC9900;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#in_wrapper {
+    position: relative;
+    margin: 2% 4% 2% 4%;
+    background-color: #310010;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#in_wrapper:hover {
+    border: 2px solid #CC9900;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#inventory {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-image: url(./Images/cellar1.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /*background-color: #310010;*/
+    color: #CC9900;
+    font-size: 1.6em;
+    width: 40%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2.5% 9% 2.5% 4%;
+    padding: 11% 0% 11% 0%;
+    border: 7.5px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#inventory:hover {
+    -webkit-animation-name: rot_bord; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin: 50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+#inventory_text {
+    width: 30%;
+    background-color: transparent;
+    color: black;
+    font-size: 0.8em;
+    text-align: center;
+    text-shadow: 0.035em 0.035em #CC9900;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#inventory_text:hover {
+    -webkit-animation-name: rot_bord; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin: 50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#login {
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    background-image: url(./Images/login1.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /*background-color: #310010;*/
+    color: #CC9900;
+    font-size: 1.6em;
+    width: 40%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2.5% 4% 2.5% 0%;
+    padding: 11% 0% 11% 0%;
+    border: 7.5px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#login:hover {
+    -webkit-animation-name: rot_bord; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin: 50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#login_text {
+    width: 30%;
+    background-color: transparent;
+    color: black;
+    font-size: 0.8em;
+    text-align: center;
+    text-shadow: 0.035em 0.035em #CC9900;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#login_text:hover {
+    -webkit-animation-name: rot_bord; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin: 50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
 @-webkit-keyframes rot1 {
     0% { -webkit-transform: rotate(0deg); }
-    25% { -webkit-transform: rotate(0.5deg); }
+    25% { -webkit-transform: rotate(5deg); }
     50% { -webkit-transform: rotate(0deg); }
-    75% { -webkit-transform: rotate(-0.5deg); }
+    75% { -webkit-transform: rotate(-5deg); }
     100% { -webkit-transform: rotate(0deg); }
+}
+
+@-webkit-keyframes move1 {
+    0% { -webkit-transform: translateX(0%); }
+    25% { -webkit-transform: translateX(10%); }
+    50% { -webkit-transform: translateX(0%); }
+    75% { -webkit-transform: translateX(-10%); }
+    100% { -webkit-transform: translateX(0%); }
 }
 
 @-webkit-keyframes bord1 {
@@ -559,6 +502,39 @@ html, body {
     }
     100% {
         border: 2px solid #CC9900;
+        -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+        -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+        box-shadow: 0px 0px 20px 4px #CC9900;
+    }
+}
+
+@-webkit-keyframes rot_bord {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+        -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+        box-shadow: 0px 0px 20px 4px #CC9900;
+    }
+    25% {
+        -webkit-transform: rotate(5deg);
+        -webkit-box-shadow: 0px 0px 15px 3px #CC9900;
+        -moz-box-shadow: 0px 0px 15px 3px #CC9900;
+        box-shadow: 0px 0px 15px 3px #CC9900;
+    }
+    50% {
+        -webkit-transform: rotate(0deg);
+        -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+        -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+        box-shadow: 0px 0px 10px 2px #CC9900;
+    }
+    75% {
+        -webkit-transform: rotate(-5deg);
+        -webkit-box-shadow: 0px 0px 15px 3px #CC9900;
+        -moz-box-shadow: 0px 0px 15px 3px #CC9900;
+        box-shadow: 0px 0px 15px 3px #CC9900;
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
         -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
         -moz-box-shadow: 0px 0px 20px 4px #CC9900;
         box-shadow: 0px 0px 20px 4px #CC9900;

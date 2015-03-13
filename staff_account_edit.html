@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit Account</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="staff_account_edit_sheet.css">
+        <script src="jscripts.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div id="banner" onclick="nextLocation('index.html');">Flying Dutchman 13 - Never Lost</div>
+        </div>
+        <div id="history">
+            <div id="hist">Navigation: </div>
+            <div id="home" onclick="nextLocation('index.html');">Home</div>
+            <div id="login" onclick="nextLocation('login.html');">Login</div>
+            <div id="staff" onclick="nextLocation('staff.html');">Staff</div>
+            <div id="account" onclick="nextLocation('staff_account.html');">Account</div>
+            <div id="edit" onclick="nextLocation('staff_account_edit.html');">Edit</div>
+        </div>
+        <div id="wrapper">
+            <div id="in_wrapper">
+                <div id="in_wrapper2">
+                    <div id="edit_account" >Edit Account</div>
+                    <input id="username" placeholder="Username" type="text" autocomplete="off">
+                    <input id="password" placeholder="Password" type="password">
+                    <input id="new_username" placeholder="New Username" type="text" autocomplete="off">
+                    <input id="new_password" placeholder="New Password" type="password">
+                    <input id="first_name" placeholder="First Name" type="text">
+                    <input id="last_name" placeholder="Last Name" type="text">
+                    <input id="email" placeholder="Email" type="text">
+                    <input id="phone" placeholder="Phone" type="text">
+                    <div id="confirm" onclick="staff_account_edit_confirm();">Confirm</div>
+                    <div id="cancel" onclick="nextLocation('staff_account.html');">Cancel</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

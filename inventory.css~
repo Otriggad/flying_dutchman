@@ -1,0 +1,229 @@
+
+
+body {
+    background-color: #310010;
+    font-family: Verdana, Geneva, sans-serif;
+    /*background-size: cover;*/
+    /*width: 100%;*/
+}
+
+
+#header {
+    position: relative;
+    height:15%;
+    background-color: #000E1B;
+    margin: 2% 2% 2% 2%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#header:hover {
+    border: 2px solid #CC9900;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 20px 4px #CC9900;
+}
+
+#banner {
+    position: relative;
+    cursor: pointer;
+    background-color: #310010;
+    color: #CC9900;
+    font-size: 3.8em;
+    text-shadow: 0.035em 0.035em black;
+    margin: 50px 50px 50px 50px;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 20px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#banner:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#history {
+    position: relative;
+    background-color: #000E1B;
+    margin: 2% 2% 2% 2%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#history:hover {
+    border: 2px solid #CC9900;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 20px 4px #CC9900;
+}
+
+#hist {
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 20%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 5% 2% 10%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#hist:hover {
+    border: 2px solid #CC9900;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 20px 4px #CC9900;
+}
+
+#home {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #310010;
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 15%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 2% 2% 0%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#home:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#login {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #310010;
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 15%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 2% 2% 0%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+}
+
+#login:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+#staff {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #310010;
+    color: #CC9900;
+    font-size: 1.2em;
+    width: 15%;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 10% 2% 0%;
+    padding: 0.5% 0% 0.5% 0%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 20px 4px #CC9900;
+    -moz-box-shadow: 0px 0px 20px 4px #CC9900;
+    box-shadow: 0px 0px 20px 4px #CC9900;
+}
+
+#staff:hover {
+    -webkit-animation-name: bord1; 
+    -webkit-animation-duration: 2.0s; 
+    -webkit-transform-origin:50% 50%; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: linear; 
+}
+
+
+#user_info { 
+    float:right;
+    display:none;
+} 
+
+#cart { 
+    float: left;
+    position: static;
+    background-color:#B38806;
+    padding:0 1%;
+    margin-top: 30px;  
+    overflow-y: scroll;
+    height: 400px;
+} 
+
+#content_area {
+    float: left;
+    width: 930px;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+}
