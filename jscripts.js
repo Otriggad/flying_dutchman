@@ -236,16 +236,78 @@ function checkout() {
 		nextLocation('inventory.html');
 }
 
+
+function load_prev_cart() {
+    if (sessionStorage.oldcart== undefined || sessionStorage.oldcart == null) {
+	console.log("borde va undefined");
+        var cdiv = document.getElementById("cart");
+        var ld = document.getElementById("cList");
+        if (ld != null) {
+            while (ld.firstChild)
+                ld.removeChild(ld.firstChild);
+            
+        }
+	cdiv.appendChild(ld);
+        return;
+    } else {
+	console.log("ska inte va undefined");
+        var obj = JSON.parse(sessionStorage.oldcart);
+        var myListDiv = document.getElementById("cart");
+        var list = document.createElement('UL');
+        list.setAttribute("id", "cList");
+        for (var i = 0; i < obj.items.length; i++) {
+            var li1 = document.createElement('LI');
+            li1.setAttribute("id", obj.items[i].id);
+            li1.appendChild(document.createTextNode(obj.items[i].name));
+            li1.appendChild(document.createElement('BR'));
+            li1.appendChild(document.createTextNode(obj.items[i].count));
+            li1.appendChild(document.createElement('BR'));
+            li1.appendChild(document.createTextNode(obj.items[i].price));
+            li1.appendChild(document.createElement('BR'));
+            li1.appendChild(document.createTextNode(obj.items[i].id));
+            list.appendChild(li1);
+            document.getElementById("span_total").innerHTML = parseFloat(sessionStorage.oldsum);
+        }
+	myListDiv.appendChild(list);
+    }
+}
 function previous_orders() {
     location.href = "inventory_usr.html";
 }
 
-//Carts should be represented by an json object {items:[{name,id,count,price}]}
-function addToCart(data) {
-    var jsonStr;
-    var obj;
-    var obj2 = JSON.parse(data);
-    var myListDiv = document.getElementById("cart");
+function undo() {
+    if (sessionStorage.cart == undefined) {
+	return;
+    } else if (sessionStorage.cart == null) {
+	
+    } else { 	
+	var myListDiv = document.getElementById("cart");
+	var li1 = document.getElementById("cList");
+	 while (li1.firstChild){ 
+	     li1.removeChild(li1.firstChild);
+	 }	 
+	myListDiv.appendChild(li1);
+	load_prev_cart();
+	sessionStorage.cart = sessionStorage.oldcart;
+	sessionStorage.oldcart = undefined;
+     }
+
+ }
+
+ function redo() {
+     if (sessionStorage.redo != undefined || sessionStorage.redo != null) { 
+	 addToCart(sessionStorage.redo);
+	 sessionStorage.redo = undefined;
+     }
+ }
+
+//This function adds a new item to the list, if there's already a list it empty it's and parse the jsonc art and fills it again. 
+ //Carts should be represented by an json object {items:[{name,id,count,price}]}
+ function addToCart(data) {
+     var jsonStr;
+     var obj;
+     var obj2 = JSON.parse(data);
+     var myListDiv = document.getElementById("cart");
     var list;
     var sum = parseFloat(document.getElementById("span_total").innerHTML);
     if (document.getElementById("cList") == null) {
@@ -254,8 +316,7 @@ function addToCart(data) {
     } else {
         list = document.getElementById("cList");
     }
-
-    if (sessionStorage.cart != undefined) {
+    if (sessionStorage.cart != undefined || sessionStorage.cart != null) {
         jsonStr = sessionStorage.cart;
         obj = JSON.parse(jsonStr);
         var length = obj.items.length
@@ -273,10 +334,6 @@ function addToCart(data) {
                 li1.appendChild(document.createTextNode(obj.items[i].id));
                 list.appendChild(li1);
                 sum += obj.items[i].price * obj.items[i].count;
-                /*obj.items[i].name = obj2.name;
-									obj.items[i].id = id;
-									obj.items[i].count = count;
-									obj.items[i].price = price*count;*/
                 console.log(data);
             } else if (obj.items[i].id == obj2.id) {
                 obj.items[i].count += obj2.count;
@@ -289,20 +346,26 @@ function addToCart(data) {
                 li1.appendChild(document.createElement('BR'));
                 li1.appendChild(document.createTextNode(obj.items[i].count));
                 li1.appendChild(document.createElement('BR'));
-                li1.appendChild(document.createTextNode(obj.items[i].price * obj.items[i].count));
+                li1.appendChild(document.createTextNode((obj.items[i].price * obj.items[i].count).toFixed(2)));
                 li1.appendChild(document.createElement('BR'));
                 li1.appendChild(document.createTextNode(obj.items[i].id));
                 list.appendChild(li1);
                 myListDiv.appendChild(list);
                 jsonStr = JSON.stringify(obj);
+		sessionStorage.redo = data
+		var old = sessionStorage.cart;
+		sessionStorage.oldcart = old;
                 sessionStorage.cart = jsonStr;
                 sum += obj.items[i].price * obj2.count;
-                document.getElementById("span_total").innerHTML = sum;
+		sessionStorage.oldsum = sessionStorage.total;
+		sessionStorage.total = sum;
+                document.getElementById("span_total").innerHTML = sum.toFixed(2);
+		console.log(sessionStorage.oldcart);
                 return;
             }
         }
     } else {
-        var p = (obj2.count * obj2.price);
+        var p = (obj2.count * obj2.price).toFixed(2);
         obj = {"items": [{"name": obj2.name, "id": obj2.id, "count": obj2.count, "price": obj2.price}]};
         var li1 = document.createElement('LI');
         li1.setAttribute("id", obj.items[0].id);
@@ -314,17 +377,16 @@ function addToCart(data) {
         li1.appendChild(document.createElement('BR'));
         li1.appendChild(document.createTextNode(obj.items[0].id));
         list.appendChild(li1);
-
-        /*obj.items[i].name = obj2.name;
-					obj.items[i].id = id;
-					obj.items[i].count = count;
-					obj.items[i].price = price*count; */
         sum += obj.items[0].price * obj.items[0].count;
     }
     myListDiv.appendChild(list);
-    document.getElementById("span_total").innerHTML = sum;
+    document.getElementById("span_total").innerHTML = sum.toFixed(2);
     jsonStr = JSON.stringify(obj);
+    sessionStorage.oldsum = sessionStorage.total;
     sessionStorage.total = sum;
+    sessionStorage.redo = data
+    var old = sessionStorage.cart;
+    sessionStorage.oldcart = old;
     sessionStorage.cart = jsonStr;
 }
 
@@ -353,6 +415,7 @@ function load_user_info(data) {
 }
 
 //draws inventory content
+//this function simply parses the inventory json object and creates the necessary cells for our inventory table.
 function create_table(inv, mode) {
     var text = "";
     var myTableDiv = document.getElementById("content_area");
@@ -382,9 +445,9 @@ function create_table(inv, mode) {
                     var tmp;
                     if (inv.payload[i].namn != "") {
                         var td = document.createElement('TD');
-												td.setAttribute("draggable","true");
-												td.setAttribute("ondragstart","drag(event)");
-												//												td.setAttribute("class","item");
+			td.setAttribute("draggable","true");
+			td.setAttribute("ondragstart","drag(event)");
+			//												td.setAttribute("class","item");
                         td.setAttribute("id", "prodo" + i);
                         var b1 = document.createElement('B');
                         b1.setAttribute("name", "nm");
@@ -394,10 +457,10 @@ function create_table(inv, mode) {
                         tmp = inv.payload[i].namn;
                     } else if (inv.payload[i].namn2 != "") {
                         var td = document.createElement('TD');
-												//dragndrop
-												td.setAttribute("draggable","true");
-												td.setAttribute("ondragstart","drag(event)");
-												//
+			//dragndrop
+			td.setAttribute("draggable","true");
+			td.setAttribute("ondragstart","drag(event)");
+			//
                         td.setAttribute("id", "prodo" + i + "td");
                         var b1 = document.createElement('B');
                         b1.setAttribute("name", "name");
@@ -432,10 +495,11 @@ function create_table(inv, mode) {
                     btn.setAttribute("id", "prod" + i);
                     //btn.setAttribute("onclick","addToCart("+tmp+","+inv.payload[i].beer_id+","+1+""+inv.payload[i].price+");");*/
                     var obj = {"name": tmp, "id": inv.payload[i].beer_id, "count": 1, "price": inv.payload[i].price};
-                    obj.name = tmp;
+
+/*		    obj.name = tmp;
                     obj.id = inv.payload[i].beer_id;
                     obj.count = 1;
-                    obj.price = inv.payload[i].price;
+                    obj.price = inv.payload[i].price;*/
                     var data = JSON.stringify(obj);
 
                     //var obj = JSON.parse(data);
@@ -475,8 +539,6 @@ function create_table(inv, mode) {
         text = "";
     }
     myTableDiv.appendChild(table);
-
-
 }
 
 //callback function to handle request for full inventory
@@ -520,7 +582,7 @@ function callback_filtered_inv(request) {
 
 
 function load_cart() {
-    if (sessionStorage.getItem("cart") == undefined) {
+    if (sessionStorage.cart == undefined) {
         var cdiv = document.getElementById("cart");
         var ld = document.getElementById("cList");
         if (ld != null) {
@@ -752,23 +814,16 @@ function bar_login() {
     nextLocation('staff.html');
 }
 
-function startup_login() {
-    var usr = document.getElementById('username').value.toString();
-    var pass = document.getElementById('password').value.toString();
-    localStorage.setItem("usrAdmin", "jorass");
-    localStorage.setItem("passAdmin", "jorass");
-    location.href = '_index.html.html';
-}
 function user_logout() {
     localStorage.removeItem("usr");
     localStorage.removeItem("pass");
-    location.href = "_index.html";
+    location.href = "index.html";
 }
 function bartender_logout() {
     localStorage.removeItem("barUsr");
     localStorage.removeItem("barPass");
     localStorage.bar = "";
-    location.href = "_index.html";
+    location.href = "index.html";
 }
 
 function send_request(data) {
