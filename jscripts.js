@@ -152,6 +152,33 @@ function staff_account_edit_confirm() {
     location.href = "staff_account_edit_confirm.html";
 }
 
+
+
+
+function beer_data_get_request(id) {
+		console.log("beerdataget");
+		var usr = "jorass";
+    var pass = "jorass";
+    localStorage.setItem("usrAdmin", usr);
+    localStorage.setItem("passAdmin", pass);
+		var data = "username=" + usr + "&password=" + pass + "&action=beer_data_get&beer_id=" + id;
+		send_request_callback(data, beer_data_display);
+}
+
+function beer_data_display(request) {
+    var beer_data = JSON.parse(request);
+		console.log(beer_data);
+		
+		var beerdetails = document.getElementById("beerdetail");
+		var beerobj = beer_data.payload[0];
+		beerdetails.innerHTML = "<h3>" + beerobj.namn + " " + beerobj.namn2 + "</h3> <p><b>Price: </b>"+ beerobj.prisinklmoms + "</p> <p><b>Type: </b>"+ beerobj.varugrupp + "</p> <p><b>Packaging: </b>"+ beerobj.forpackning + "</p> <p><b>Alcohol level: </b>"+ beerobj.alkoholhalt + "</p>";
+		
+		var beerimage = document.getElementById("beerimg");
+		beerimage.setAttribute("src", "Images/beer.png");
+		beerimage.setAttribute("height", "90%");
+
+}
+
 function getMessage(divName) {
     document.getElementById(divName).innerHTML = localStorage.getItem("message");
 }
@@ -451,32 +478,34 @@ function create_table(inv, mode) {
                         td.setAttribute("id", "prodo" + i);
                         var b1 = document.createElement('B');
                         b1.setAttribute("name", "nm");
-                        b1.appendChild(document.createTextNode('Name: '));
+                        b1.appendChild(document.createTextNode(''));
                         td.appendChild(b1);
-                        td.appendChild(document.createTextNode(inv.payload[i].namn));
+                        b1.appendChild(document.createTextNode(inv.payload[i].namn));
                         tmp = inv.payload[i].namn;
                     } else if (inv.payload[i].namn2 != "") {
                         var td = document.createElement('TD');
+												td.setAttribute("width", "20%");
 			//dragndrop
-			td.setAttribute("draggable","true");
-			td.setAttribute("ondragstart","drag(event)");
+												td.setAttribute("draggable","true");
+												td.setAttribute("ondragstart","drag(event)");
 			//
                         td.setAttribute("id", "prodo" + i + "td");
                         var b1 = document.createElement('B');
                         b1.setAttribute("name", "name");
-                        b1.appendChild(document.createTextNode('Name: '));
+                        b1.appendChild(document.createTextNode(''));
                         td.appendChild(b1);
-                        td.appendChild(document.createTextNode(inv.payload[i].namn2));
+                        b1.appendChild(document.createTextNode(inv.payload[i].namn2));
                         tmp = inv.payload[i].namn;
                     }
                     td.appendChild(document.createElement('BR'));
                     var b2 = document.createElement('B');
                     b2.setAttribute("name", "cnt");
-                    b2.appendChild(document.createTextNode('Count: '));
+                    b2.appendChild(document.createTextNode('In stock: '));
                     td.appendChild(b2);
                     if (inv.payload[i].count > 0) {
                         td.appendChild(document.createTextNode(inv.payload[i].count));
                     } else {
+												td.removeChild(td.childNodes[2]);
                         var tn = document.createTextNode(" Out of stock!");
 
                         td.appendChild(tn);
@@ -489,6 +518,10 @@ function create_table(inv, mode) {
                     td.appendChild(document.createTextNode(inv.payload[i].price));
                     td.appendChild(document.createElement('BR'));
                     var btn = document.createElement("BUTTON");        // Create a <button> element
+										var btn_detail = document.createElement("LABEL");        // Create a <button> element
+										
+										btn_detail.setAttribute("for", "modal-2");
+										btn_detail.setAttribute("onclick", "beer_data_get_request("+inv.payload[i].beer_id +");");
                     btn.setAttribute("id", "hot-container");
                     btn.setAttribute("hot-container", "prod" + i);
                     btn.setAttribute("onclick", "addToCart(" + tmp + "," + inv.payload[i].beer_id + ",1," + inv.payload[i].price + ");");
@@ -502,15 +535,21 @@ function create_table(inv, mode) {
                     obj.price = inv.payload[i].price;*/
                     var data = JSON.stringify(obj);
 
-                    //var obj = JSON.parse(data);
+												//var obj = JSON.parse(data);
 
                     btn.setAttribute("onclick", "addToCart(" + "'" + data + "'" + ");");
                     var t = document.createTextNode("Add");       // Create a text node
                     btn.appendChild(t);                                // Append the text to <button>
-
+										var t_detail = document.createTextNode("Details");
+												btn_detail.appendChild(t_detail);
+												
                     td.appendChild(btn);                    // Append <button> to <body>
+										td.appendChild(btn_detail);
+										btn_detail.setAttribute("Style", "float: right;");
                     if (inv.payload[i].count <= 0) {
                         btn.setAttribute("class", "hidden");
+												td.setAttribute("draggable","false");
+												td.setAttribute("class","outofstock");
                     }
                     if (mode == "bar") {
                         var lbl = document.createElement("LABEL");        // Create a <button> element
@@ -581,6 +620,35 @@ function callback_filtered_inv(request) {
 }
 
 
+
+
+//callback function used when filtering inventory by name 
+function callback_instock_inv(request) {
+    if (sessionStorage.mode == "usr") {
+        //var ui = document.getElementById("user_info");
+        //load_user_info();
+        iou_get_all_request();
+        //ui.setAttribute("display","block");
+    }
+    var mode = sessionStorage.mode;
+
+    var inv = JSON.parse(request);
+    //var inv = miniPayload;
+    inv.payload = jQuery.grep(inv.payload, function(element, index) {
+        return element.count > 0;
+    });
+		
+		document.getElementById("content_area").innerHTML = "";
+		
+    create_table(inv, mode);
+		if (document.getElementById("beer").rows.length === 0) {
+				document.getElementById("content_area").innerHTML = "Your search for <b><i>" + searchStr +  "</i></b> did not match anything in the inventory.";
+		}
+}
+
+
+
+
 function load_cart() {
     if (sessionStorage.cart == undefined) {
         var cdiv = document.getElementById("cart");
@@ -641,6 +709,21 @@ function search_inventory_get_request() {
     var data = "username=" + usr + "&password=" + pass + "&action=inventory_get";
     send_request_callback(data,callback_filtered_inv);
 }
+
+
+
+function instock_inventory_get_request() {
+		
+    var usr = "jorass"
+    var pass = "jorass"
+    localStorage.setItem("usrAdmin",usr);
+    localStorage.setItem("passAdmin",pass);
+    load_cart();
+    var data = "username=" + usr + "&password=" + pass + "&action=inventory_get";
+    send_request_callback(data,callback_instock_inv);
+}
+
+
 
 function purchases_get_request() {
     var usr = document.getElementById('username').value.toString();
@@ -703,14 +786,14 @@ function iou_get_all_request() {
 
 }
 
-function beer_data_get_request() {
+/*function beer_data_get_request() {
     var usr = document.getElementById('username').value.toString();
     var pass = document.getElementById('password').value.toString();
     var beer_id = document.getElementById('beer_id').value.toString();
     var data = "username=" + usr + "&password=" + pass + "&action=beer_data_get" + "&beer_id=" + beer_id;
     send_request(data);
 }
-
+*/
 function user_edit_request() {
     var usr = document.getElementById('username').value.toString();
     var pass = document.getElementById('password').value.toString();
@@ -948,7 +1031,7 @@ $(function(){
 
     $(window).scroll(function(){
         if( $(window).scrollTop() > stickyHeaderTop ) {
-            $('#cart').css({position: 'fixed', top: '0px' ,"margin-top": '0px', "margin-left": '950px', "margin-bottom": '1000px'});
+            $('#cart').css({position: 'fixed', top: '0px' ,"margin-top": '0px', "margin-left": '965px', "margin-bottom": '1000px'});
         } else {
             $('#cart').css({position: 'static', "margin-top": '30px', "margin-left": '0px', "margin-bottom": '0px'});
 
