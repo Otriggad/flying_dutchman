@@ -24,7 +24,10 @@
 
         <div id="searchfield">
             <input id="searchbar" type="search" onKeydown="Javascript:if(event.keyCode==13)search_inventory_get_request();">
-            <input name="buttonExecute" onkeypressonclick="search_inventory_get_request();" type="button" value="search" >
+            <input name="buttonExecute" onclick="search_inventory_get_request();" type="button" value="search" >
+						Show:
+						<input type="radio" name="show" onclick="inventory_get_request();" id="showall" checked="checked">All
+						<input type="radio" name="show" id="showinstock" onclick="instock_inventory_get_request();">In stock
         </div>
 
         <div id="content_area">  
@@ -40,8 +43,8 @@
             <button id="checkout" onclick="showvalid('show');"> Checkout</button>
             -->
             <button id="undo" onclick="undo();"> Undo</button>
-	    <label id="checkout" for="modal-1">Checkout</label>
-            <button id="redo" onclick="redo();"> redo</button>
+						<label id="checkout" for="modal-1">Checkout</label>
+      <button id="redo" onclick="redo();"> redo</button>
 
       
         </div>
@@ -60,6 +63,20 @@
 
             </div>
         </div>
+				
+				<input class="modal-state" id="modal-2" type="checkbox" />
+				<div class="modal">
+					<label class="modal__bg" for="modal-2"></label>
+					<div id="beerdetail_wrapper" class="modal__inner">
+						<label class="modal__close" for="modal-2"></label>
+						<div id="beerdetail">
+						</div>
+						<img id="beerimg">
+						</img>
+
+					</div>
+										
+				</div>
 
     </body>
 </html>
