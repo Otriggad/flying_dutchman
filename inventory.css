@@ -293,7 +293,24 @@ body {
 #content_area {
 		color: #CC9900;
     float: left;
-    width: 930px;
+    width: 945px;
     margin: 20px 0 20px 0;
     padding: 10px;
+}
+
+.outofstock {
+		color: #646462 !important;
+		background-color:#2E2427 !important;
+}
+
+#searchfield {
+		color: #FFFFFF;
+}
+
+#beerimg {
+float: right;
+}
+
+#beerdetail {
+float: left;
 }
