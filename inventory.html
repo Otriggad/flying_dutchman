@@ -10,31 +10,29 @@
         <script src="jquery.js" type="text/javascript"></script>
         <script src="jscripts.js" type="text/javascript"></script>
     </head>
-    <body onload="inventory_get_request();">
-        <div id="header">
-            <div id="banner" onclick="clear_cart();">Flying Dutchman 13 - Never Lost</div>
-        </div>
+    <body onload="clear_cart(); inventory_get_request();">
 
-        <div id="history">
-            <div id="hist">Navigation: </div>
+        <div id="navigation">
             <div id="home" onclick="nextLocation('index.html');">Home</div>
-            <div id="login" onclick="nextLocation('login.html');">Login</div>
-            <div id="staff" onclick="nextLocation('staff.html');">Staff</div>
+            <input id="searchbar" type="search" onKeydown="Javascript:if (event.keyCode === 13) search_inventory_get_request();">
+            <div id="search" onclick="clear_content(); search_inventory_get_request();">Search</div>
+            <!--<div id="show">Show:</div>-->
+            <input id="showall" name="show" type="radio" onclick="clear_content(); inventory_get_request();" checked="checked">
+            <div id="all">All</div>
+            <input id="showinstock" name="show" type="radio" onclick="clear_content(); instock_inventory_get_request();">
+            <div id="instock">In Stock</div>
         </div>
 
-        <div id="searchfield">
-            <input id="searchbar" type="search" onKeydown="Javascript:if(event.keyCode==13)search_inventory_get_request();">
-            <input name="buttonExecute" onclick="search_inventory_get_request();" type="button" value="search" >
-						Show:
-						<input type="radio" name="show" onclick="inventory_get_request();" id="showall" checked="checked">All
-						<input type="radio" name="show" id="showinstock" onclick="instock_inventory_get_request();">In stock
-        </div>
+<!--        <div id="searchfield">
+            <input id="searchbar" type="search" onKeydown="Javascript:if (event.keyCode === 13) search_inventory_get_request();">
+            <input name="buttonExecute" onclick="clear_content(); search_inventory_get_request();" type="button" value="search" >
+            Show:
+            <input type="radio" name="show" onclick="clear_content(); inventory_get_request();" id="showall" checked="checked">All
+            <input type="radio" name="show" id="showinstock" onclick="clear_content(); instock_inventory_get_request();">In stock
+        </div>-->
 
-        <div id="content_area">  
-        </div>
+        <div id="content_area"></div>
 
-
-				
         <div id="cart" class="cart" ondrop="drop(event)" ondragover="allowDrop(event)">  
             <h1>Shopping Cart</h1> 
             <!--<ul></ul> -->
@@ -43,10 +41,10 @@
             <button id="checkout" onclick="showvalid('show');"> Checkout</button>
             -->
             <button id="undo" onclick="undo();"> Undo</button>
-						<label id="checkout" for="modal-1">Checkout</label>
-      <button id="redo" onclick="redo();"> redo</button>
+            <label id="checkout" for="modal-1">Checkout</label>
+            <button id="redo" onclick="redo();"> redo</button>
 
-      
+
         </div>
 
 
@@ -63,20 +61,21 @@
 
             </div>
         </div>
-				
-				<input class="modal-state" id="modal-2" type="checkbox" />
-				<div class="modal">
-					<label class="modal__bg" for="modal-2"></label>
-					<div id="beerdetail_wrapper" class="modal__inner">
-						<label class="modal__close" for="modal-2"></label>
-						<div id="beerdetail">
-						</div>
-						<img id="beerimg">
-						</img>
 
-					</div>
-										
-				</div>
+        <input class="modal-state" id="modal-2" type="checkbox" />
+        <div class="modal">
+            <label class="modal__bg" for="modal-2"></label>
+            <div id="beerdetail_wrapper" class="modal__inner">
+                <label class="modal__close" for="modal-2"></label>
+                <div id="beerdetail">
+                </div>
+                <img id="beerimg">
+                    
+                </img>
+
+            </div>
+
+        </div>
 
     </body>
 </html>
