@@ -207,6 +207,7 @@ function clear_cart() {
 function findAsset(data, usr) {
     console.log("hej");
     var iou = JSON.parse(data);
+    
     var funds = 0;
     for (var i = 0; i < iou.payload.length; i++) {
         if (iou.payload[i].username == usr) {
@@ -216,10 +217,76 @@ function findAsset(data, usr) {
     }
 }
 
-function checkout() {
+function checkout2(iou) {
+    var ausr = localStorage.usrAdmin;
+    var apass = localStorage.passAdmin;
+
+    var temp = JSON.parse(iou);
+    if(temp.type == "error"){
+	document.getElementById("status").innerHTML = "An error occured";
+	return;
+    }
     var usr = document.getElementById('username').value.toString();
     var pass = document.getElementById('password').value.toString();
+    
+    funds = findAsset(iou, usr);
+    var data = sessionStorage.cart;
+    var data2;
+    var obj = JSON.parse(data);
+    var sum = 0;
+    for (var i = 0; i < obj.items.length; i++) {
+        sum = sum + (obj.items[i].price * obj.items[i].count);
+    }
+    if (sum > funds) {
+	if ((funds - sum) < -1000) {
+	    
+	    document.getElementById("status").innerHTML = "You can't afford this";
+	    
+	    return;
+	}
+    }
+    
+    for(var i = 0;i < obj.items.length;i++) {
+	/*	data = "username=" + ausr + "&password=" + apass + "&action=inventory_append" + 
+		"&beer_id=" + obj.items[i].id + "&amount=" + "-" + obj.items[i].count + "&price=" + obj.items[i].price;
+		send_request(data);
+		data2 = "username=" + usr + "&password=" + pass + "&action=purchases_append" + 
+		"&beer_id=" + obj.items[i].id
+		send_request(data2);*/
 
+	data = "username=" + ausr + "&password=" + apass + "&action=inventory_append" + 
+	    "&beer_id=" + obj.items[i].id + "&amount=" + "-" + obj.items[i].count + "&price=" + obj.items[i].price;
+	    console.log(apass);
+	send_request_callback(data,function tmp(resp) {
+
+	    var respObj = JSON.parse(resp);
+	    if(respObj.type == "error") {
+		document.getElementById("status").innerHTML = "An error occured";
+		return;
+	    }
+	    data2 = "username=" + usr + "&password=" + pass + "&action=purchases_append" + 
+		"&beer_id=" + obj.items[i].id;
+	    send_request_callback(data2,function tmp2(resp2) {
+		var respObj = JSON.parse(resp);
+		if( respObj.type == "error"){
+		    document.getElementById("status").innerHTML = "An error occured2";
+		    return;
+		}
+		
+	    });
+	});
+    }
+    document.getElementById("status").innerHTML = "Purchase sucessful";
+    //sessionStorage.cart = undefined;
+    
+}
+
+function checkout() {
+    document.getElementById("status").innerHTML = "Processeing";
+    var usr = document.getElementById('username').value.toString();
+    var pass = document.getElementById('password').value.toString();
+    var ausr = localStorage.usrAdmin;
+    var apass = localStorage.passAdmin;
     var data = sessionStorage.cart;
     var obj = JSON.parse(data);
 
@@ -235,37 +302,46 @@ function checkout() {
         var val = parseInt(document.getItembyId("funds").toValue);
     } else {
         var data = "username=jorass &password=jorass&action=iou_get_all";
-        send_request_callback(data, function iouGet(iou) {
-            //console.log(asd);
-
-
-            funds = findAsset(iou, usr);
-            console.log(funds);
-        });
-
+        send_request_callback(data, checkout2);
+        return;
     }
-    /*if (sum > funds) {
-			if ((funds - sum) > -1000) {
-			document.getElementById("status").innerHTML = "You can't afford this";
-			document.getElementById("checkout").innerHTML = "back";
-			}
-			}
-			
-			for(var i = 0;i < obj.items.length;i++) {
-			data = "username=" + ausr + "&password=" + apass + "&action=inventory_append" + 
-			"&beer_id=" + obj.item[i].id + "&amount=" + "-" + obj.items[i].count + "&price=" + obj.item[i].price;
-			send_request(data);
-			data2 = "username=" + usr + "&password=" + pass + "&action=purchases_append" + 
-			"&beer_id=" + obj.item[i].id
-			send_request(data2);
-			}*/
-		sessionStorage.cart = undefined;
-		nextLocation('inventory.html');
+    if (sum > funds) {
+	if ((funds - sum) < -1000) {
+	    document.getElementById("status").innerHTML = "You can't afford this";
+	    
+	    return;
+	}
+    }
+
+    for(var i = 0;i < obj.items.length;i++) {
+	data = "username=" + ausr + "&password=" + apass + "&action=inventory_append" + 
+	    "&beer_id=" + obj.items[i].id + "&amount=" + "-" + obj.items[i].count + "&price=" + obj.items[i].price;
+	send_request_callback(data,function tmp(resp) {
+	    var respObj = JSON.parse(resp);
+	    if( respObj.type == "error") {
+		document.getElementById("status").innerHTML = "An error occured";
+		return;
+	    }
+	    data2 = "username=" + usr + "&password=" + pass + "&action=purchases_append" + 
+		"&beer_id=" + obj.items[i].id;
+	    send_request_callback(data2,function tmp2(resp2) {
+		var respObj = JSON.parse(resp);
+		if( respObj.type == "error"){
+		    document.getElementById("status").innerHTML = "An error occured2";
+		    return;
+	    }
+		
+	    });
+	});
+    }
+    document.getElementById("status").innerHTML = "Purchase sucessful";
+    //sessionStorage.cart = undefined;
+    nextLocation('inventory.html');
 }
 
 
 function load_prev_cart() {
-    if (sessionStorage.oldcart== undefined || sessionStorage.oldcart == null) {
+    if (sessionStorage.oldcart == undefined || sessionStorage.oldcart == null) {
 	console.log("borde va undefined");
         var cdiv = document.getElementById("cart");
         var ld = document.getElementById("cList");
@@ -324,7 +400,9 @@ function undo() {
  function redo() {
      if (sessionStorage.redo != undefined || sessionStorage.redo != null) { 
 	 addToCart(sessionStorage.redo);
-	 sessionStorage.redo = undefined;
+	 sessionStorage.redo = null;
+     } else {
+	 return;
      }
  }
 
@@ -684,9 +762,7 @@ function load_cart() {
 //JSON of inventory before callback to init values
 var retur = null;
 
-function checkout_request() {
 
-}
 function inventory_get_request() {
     var usr = "jorass";
     var pass = "jorass";
