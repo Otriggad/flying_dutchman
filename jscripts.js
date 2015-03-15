@@ -167,8 +167,10 @@ function checkout2(iou) {
 	    });
 	});
     }
+
     document.getElementById("status").innerHTML = "Purchase sucessful";
-    //sessionStorage.cart = undefined;
+    document.getElementById("pay").setAttribute("class", "hidden");
+    sessionStorage.removeItem("cart");
     
 }
 
@@ -228,6 +230,7 @@ function checkout() {
     }
 
     document.getElementById("status").innerHTML = "Purchase sucessful";
+    document.getElementById("pay").setAttribute("class", "hidden");
     sessionStorage.removeItem("cart");
 
     nextLocation('inventory.html');
