@@ -226,39 +226,16 @@ function checkout() {
 	    });
 	});
     }
-<<<<<<< HEAD
+
     document.getElementById("status").innerHTML = "Purchase sucessful";
-    //sessionStorage.cart = undefined;
-=======
-    /*if (sum > funds) {
-     if ((funds - sum) > -1000) {
-     document.getElementById("status").innerHTML = "You can't afford this";
-     document.getElementById("checkout").innerHTML = "back";
-     }
-     }
-     
-     for(var i = 0;i < obj.items.length;i++) {
-     data = "username=" + ausr + "&password=" + apass + "&action=inventory_append" + 
-     "&beer_id=" + obj.item[i].id + "&amount=" + "-" + obj.items[i].count + "&price=" + obj.item[i].price;
-     send_request(data);
-     data2 = "username=" + usr + "&password=" + pass + "&action=purchases_append" + 
-     "&beer_id=" + obj.item[i].id
-     send_request(data2);
-     }*/
-//    sessionStorage.cart = undefined;
     sessionStorage.removeItem("cart");
->>>>>>> e3a659b8f4c99f625ad46b6ce65f8096f79f8a4a
+
     nextLocation('inventory.html');
 }
 
 function load_prev_cart() {
-<<<<<<< HEAD
+
     if (sessionStorage.oldcart == undefined || sessionStorage.oldcart == null) {
-	console.log("borde va undefined");
-=======
-    if (sessionStorage.oldcart === undefined || sessionStorage.oldcart === null) {
-        console.log("borde va undefined");
->>>>>>> e3a659b8f4c99f625ad46b6ce65f8096f79f8a4a
         var cdiv = document.getElementById("cart");
         var ld = document.getElementById("cList");
         if (ld !== null) {
@@ -311,16 +288,7 @@ function undo() {
 
 }
 
-<<<<<<< HEAD
- function redo() {
-     if (sessionStorage.redo != undefined || sessionStorage.redo != null) { 
-	 addToCart(sessionStorage.redo);
-	 sessionStorage.redo = null;
-     } else {
-	 return;
-     }
- }
-=======
+
 function redo() {
     if (sessionStorage.redo !== undefined && sessionStorage.redo !== null) {
         addToCart(sessionStorage.redo);
@@ -328,7 +296,7 @@ function redo() {
         sessionStorage.removeItem("cart");
     }
 }
->>>>>>> e3a659b8f4c99f625ad46b6ce65f8096f79f8a4a
+
 
 //This function adds a new item to the list, if there's already a list it empty it's and parse the jsonc art and fills it again. 
 //Carts should be represented by an json object {items:[{name,id,count,price}]}
