@@ -33,13 +33,22 @@
 		  Lägg till
 		</swedish>
 	</translation>
-		<translation id="label[name='details']">
-		<english>
-		  Details
-		</english>
-		<swedish>
-		  Mer info
-		</swedish>
+	<translation id="label[name='details']">
+	  <english>
+	    Details
+	  </english>
+	  <swedish>
+	    Mer info
+	  </swedish>
+	</translation>
+	
+	<translation id="label[name='refill']">
+	  <english>
+	    Refill
+	  </english>
+	  <swedish>
+	    Fyll på
+	  </swedish>
 	</translation>
 
 	<translation id="strong[name='total']">

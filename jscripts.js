@@ -540,7 +540,8 @@ function create_table(inv, mode) {
                         td.setAttribute("class", "outofstock");
                     }
                     if (mode === "bar") {
-                        var lbl = document.createElement("LABEL");        
+                        var lbl = document.createElement("LABEL");
+			lbl.setAttribute("name","refill")
                         lbl.appendChild(document.createTextNode("Refill"));
                         lbl.setAttribute("id", "hot-container");
                         lbl.setAttribute("hot-container", "prod" + i);
