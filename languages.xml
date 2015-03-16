@@ -8,6 +8,48 @@
 			Lager
 		</swedish>
 	</translation>
+
+  	<translation id="label[name='checkout']">
+		<english>
+			checkout 
+		</english>
+		<swedish>
+			checka ut
+		</swedish>
+	</translation>
+	<translation id="h1[name='cart']">
+		<english>
+			Shopping cart
+		</english>
+		<swedish>
+			Kundvagn
+		</swedish>
+	</translation>
+	<translation id="button[name='add']">
+		<english>
+		  Add
+		</english>
+		<swedish>
+		  Lägg till
+		</swedish>
+	</translation>
+		<translation id="label[name='details']">
+		<english>
+		  Details
+		</english>
+		<swedish>
+		  Mer info
+		</swedish>
+	</translation>
+
+	<translation id="strong[name='total']">
+	  <english>
+	    Total
+	  </english>
+	  <swedish>
+	    Summa:
+	  </swedish>
+	</translation>
 	<translation id="div[name='login']">
 		<english>
 			Login
@@ -56,6 +98,7 @@
 			Annat
 		</swedish>
 	</translation>
+
 	<translation id="b[name='nm']">
 	  <english>
 	    Name:
@@ -64,12 +107,20 @@
 	    Namn:
 	  </swedish>
 	</translation>
-	  <translation id="b[name='cnt']">
+	<translation id="b[name='cnt']">
 	  <english>
-	    Antal:
+	    In stock:
 	  </english>
 	  <swedish>
-	    Number:
+	    I lager:	    
+	  </swedish>
+	</translation>
+	<translation id="b[name='oos']">
+	  <english>
+	    Ej i lager:
+	  </english>
+	  <swedish>
+	    Out of stock:
 	  </swedish>
 	  </translation>
 	  <translation id="b[name='prc']">
