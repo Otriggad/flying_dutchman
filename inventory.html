@@ -40,15 +40,15 @@
 	  <label id="previous_orders" for="modal-2">Previous orders</label>
     </div>
         <div id="cart" class="cart" ondrop="drop(event)" ondragover="allowDrop(event)">  
-            <h1>Shopping Cart</h1> 
+            <h1 name="cart">Shopping Cart</h1> 
             <!--<ul></ul> -->
-            <p id="total"><strong>Total:</strong> <span id="span_total">0.00</span></p> 
+            <p id="total"><strong name="total">Total:</strong> <span id="span_total">0.00</span></p> 
             <!--
             <button id="checkout" onclick="showvalid('show');"> Checkout</button>
             -->
-            <button id="undo" onclick="undo();"> Undo</button>
-            <label id="checkout" for="modal-1">Checkout</label>
-            <button id="redo" onclick="redo();"> redo</button>
+            <button id="undo" name="undo" onclick="undo();"> Undo</button>
+            <label id="checkout" name="checkout" for="modal-1">Checkout</label>
+            <button id="redo" name="redo" onclick="redo();"> redo</button>
 
 
         </div>
@@ -65,9 +65,9 @@
                 <button id="pay" onclick="checkout();">pay</button>
                 <button id="back" onclick="nextLocation('inventory.html');">back</button>
                 <button id="logout" onclick="user_logout();">logout</button>
-
-            </div>
+          </div>
         </div>
+
 
         <input class="modal-state" id="modal-2" type="checkbox" />
         <div class="modal">
@@ -76,12 +76,8 @@
                 <label class="modal__close" for="modal-2"></label>
                 <div id="beerdetail">
                 </div>
-                <img id="beerimg">
-                    
-                </img>
-
+                <img id="beerimg"></img>		    
             </div>
-
         </div>
 
     </body>

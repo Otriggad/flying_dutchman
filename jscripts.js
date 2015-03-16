@@ -238,7 +238,7 @@ function checkout() {
 
 function load_prev_cart() {
 
-    if (sessionStorage.oldcart == undefined || sessionStorage.oldcart == null) {
+    if (sessionStorage.oldcart == null) {
         var cdiv = document.getElementById("cart");
         var ld = document.getElementById("cList");
         if (ld !== null) {
@@ -246,9 +246,9 @@ function load_prev_cart() {
                 ld.removeChild(ld.firstChild);
         }
         cdiv.appendChild(ld);
+	document.getElementById("span_total").innerHTML = "0.00";
         return;
-    } else {
-        console.log("ska inte va undefined");
+    } else {  
         var obj = JSON.parse(sessionStorage.oldcart);
         var myListDiv = document.getElementById("cart");
         var list = document.createElement('UL');
@@ -275,7 +275,7 @@ function previous_orders() {
 
 function undo() {
     if (sessionStorage.cart === undefined || sessionStorage.cart === null) {
-        return;
+	return;
     } else {
         var myListDiv = document.getElementById("cart");
         var li1 = document.getElementById("cList");
@@ -285,18 +285,23 @@ function undo() {
         myListDiv.appendChild(li1);
         load_prev_cart();
         sessionStorage.cart = sessionStorage.oldcart;
-//        sessionStorage.oldcart = undefined;
-        sessionStorage.removeItem("cart");
+	sessionStorage.redo2 = sessionStorage.redo;
+        //sessionStorage.oldcart = undefined;
+        //sessionStorage.removeItem("cart");
+	sessionStorage.removeItem("oldcart");
     }
 
 }
 
 
 function redo() {
-    if (sessionStorage.redo !== undefined && sessionStorage.redo !== null) {
-        addToCart(sessionStorage.redo);
-//        sessionStorage.redo = undefined;
-        sessionStorage.removeItem("cart");
+    if (sessionStorage.redo2 !== undefined && sessionStorage.redo2 !== null) {
+        addToCart(sessionStorage.redo2);
+        sessionStorage.removeItem("redo2");
+        //sessionStorage.removeItem("oldcart");
+	
+    } else {
+	return
     }
 }
 
@@ -361,7 +366,7 @@ function addToCart(data) {
                 sessionStorage.total = sum;
                 document.getElementById("span_total").innerHTML = sum.toFixed(2);
                 console.log(sessionStorage.oldcart);
-                return;
+		return; 
             }
         }
     } else {
@@ -453,7 +458,7 @@ function create_table(inv, mode) {
 //                        td.setAttribute("class", "item");
                         td.setAttribute("id", "prodo" + i);
                         var b1 = document.createElement('B');
-                        b1.setAttribute("name", "nm");
+                        
                         b1.appendChild(document.createTextNode(''));
                         td.appendChild(b1);
                         b1.appendChild(document.createTextNode(inv.payload[i].namn));
@@ -482,7 +487,7 @@ function create_table(inv, mode) {
                         td.appendChild(document.createTextNode(inv.payload[i].count));
                     } else {
                         td.removeChild(td.childNodes[2]);
-                        var tn = document.createTextNode(" Out of stock!");
+                        var tn = document.createTextNode("Out of stock!");
 
                         td.appendChild(tn);
                     }
@@ -502,7 +507,8 @@ function create_table(inv, mode) {
                     btn.setAttribute("hot-container", "prod" + i);
                     btn.setAttribute("onclick", "addToCart(" + tmp + "," + inv.payload[i].beer_id + ",1," + inv.payload[i].price + ");");
                     btn.setAttribute("id", "prod" + i);
-                    //btn.setAttribute("onclick","addToCart("+tmp+","+inv.payload[i].beer_id+","+1+""+inv.payload[i].price+");");*/
+		    
+                    btn.setAttribute("name","add");
                     var obj = {"name": tmp, "id": inv.payload[i].beer_id, "count": 1, "price": inv.payload[i].price};
 
                     /*		    obj.name = tmp;
@@ -514,12 +520,12 @@ function create_table(inv, mode) {
                     //var obj = JSON.parse(data);
 
                     btn.setAttribute("onclick", "addToCart(" + "'" + data + "'" + ");");
-                    var t = document.createTextNode("Add");       // Create a text node
-                    btn.appendChild(t);                                // Append the text to <button>
+                    var t = document.createTextNode("Add");       
+                    btn.appendChild(t);                                
                     var t_detail = document.createTextNode("Details");
                     btn_detail.appendChild(t_detail);
-
-                    td.appendChild(btn);                    // Append <button> to <body>
+		    btn_detail.setAttribute("name","details");
+                    td.appendChild(btn);                    
                     td.appendChild(btn_detail);
                     btn_detail.setAttribute("Style", "float: right;");
                     if (inv.payload[i].count <= 0) {
@@ -528,13 +534,11 @@ function create_table(inv, mode) {
                         td.setAttribute("class", "outofstock");
                     }
                     if (mode === "bar") {
-                        var lbl = document.createElement("LABEL");        // Create a <button> element
+                        var lbl = document.createElement("LABEL");        
                         lbl.appendChild(document.createTextNode("Refill"));
                         lbl.setAttribute("id", "hot-container");
                         lbl.setAttribute("hot-container", "prod" + i);
                         lbl.setAttribute("for", "modal-1");
-
-                        //lbl.setAttribute("id","stock"+i);
                         td.appendChild(lbl);
                     }
                     tr.appendChild(td);
@@ -554,15 +558,19 @@ function create_table(inv, mode) {
         text = "";
     }
     myTableDiv.appendChild(table);
+    if(localStorage["currentLang"] == null){
+	localStorage.setItem("currentLang", "english")
+    }
+    setLanguage(localStorage.getItem("currentLang"));
 }
 
 //callback function to handle request for full inventory
 function testfunctable(request) {
     if (sessionStorage.mode === "usr") {
-        //var ui = document.getElementById("user_info");
+        var ui = document.getElementById("user_info");
         //load_user_info();
         iou_get_all_request();
-        //ui.setAttribute("display","block");
+        ui.setAttribute("display","block");
     }
     var inv = JSON.parse(request);
     var mode = sessionStorage.mode;
@@ -844,7 +852,7 @@ function user_login() {
     localStorage.setItem("usr", usr);
     localStorage.setItem("pass", pass);
     sessionStorage.setItem("mode", "usr");
-    location.href = 'inventory_usr.html';
+    location.href = 'inventory.html';
 }
 function bar_login() {
     var usr = document.getElementById("bar_username").value.toString();

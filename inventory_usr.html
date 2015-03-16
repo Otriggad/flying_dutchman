@@ -9,13 +9,18 @@
         <link rel="stylesheet" type="text/css" href="inventory.css"> 
         <script src="jquery.js" type="text/javascript"></script>
         <script src="jscripts.js" type="text/javascript"></script>
-    
- 
-
-
- 
   </head>
   <body onload="inventory_get_request();">
+    <div id="header">
+      <div id="banner" onclick="clear_cart();">Flying Dutchman 13 - Never Lost</div>
+    </div>
+
+    <div id="history">
+            <div id="hist">Navigation: </div>
+            <div id="home" onclick="nextLocation('index.html');">Home</div>
+            <div id="login" onclick="nextLocation('login.html');">Login</div>
+            <div id="staff" onclick="nextLocation('staff.html');">Staff</div>
+        </div>
     <label>Inventory</label><br><br>
     <div id="searchfield">
       <input id="search" type="search"><br>

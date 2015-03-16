@@ -201,6 +201,17 @@ input[type="radio"] {
     height: 400px;
 } 
 
+#user_info { 
+    float: right;
+    position: static;
+    background-color:#B38806;
+    
+
+    overflow-y: scroll;
+    height: 400px;
+} 
+
+
 #content_area {
     color: #CC9900;
     float: left;
