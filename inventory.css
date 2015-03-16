@@ -192,13 +192,29 @@ input[type="radio"] {
 }
 
 #cart { 
-    float: left;
+    float: right;
     position: static;
     background-color:#B38806;
     padding:0 1%;
     margin-top: 30px;  
     overflow-y: scroll;
     height: 400px;
+
+    cursor: pointer;
+    font-size: 1.2em;
+    width: 600*0.30;
+    text-align: center;
+    text-shadow: 0.035em 0.035em black;
+    margin: 2% 2% 2% 2%;
+    padding: 0.5% 1% 0.5% 1%;
+    border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
 } 
 
 #user_info { 
@@ -239,6 +255,9 @@ input[type="radio"] {
 
 #user_info {
     display: none;
+}
+#status{
+    color: #CC9900;
 }
 
 @-webkit-keyframes rot1 {
