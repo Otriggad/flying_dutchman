@@ -70,15 +70,19 @@ function beer_data_get_request(id) {
 }
 
 function beer_data_display(request) {
+
     var beer_data = JSON.parse(request);
     console.log(beer_data);
 
     var beerdetails = document.getElementById("beerdetail");
     var beerobj = beer_data.payload[0];
-    beerdetails.innerHTML = "<h3>" + beerobj.namn + " " + beerobj.namn2 + "</h3> <p><b>Price: </b>"
-            + beerobj.prisinklmoms + "</p> <p><b>Type: </b>" + beerobj.varugrupp + "</p> <p><b>Packaging: </b>"
-            + beerobj.forpackning + "</p> <p><b>Alcohol level: </b>" + beerobj.alkoholhalt + "</p>";
-
+    beerdetails.innerHTML = "<h3>" + beerobj.namn + " " + beerobj.namn2 + "</h3> <p><b name='prc'>Price: </b>"
+            + beerobj.prisinklmoms + "</p> <p><b name='type'>Type: </b>" + beerobj.varugrupp + "</p> <p><b name='pkg'>Packaging: </b>"
+            + beerobj.forpackning + "</p> <p><b name='level'>Alcohol level: </b>" + beerobj.alkoholhalt + "</p>";
+    if(localStorage["currentLang"] == null){
+	localStorage.setItem("currentLang", "english")
+    }
+    setLanguage(localStorage.getItem("currentLang"));
     var beerimage = document.getElementById("beerimg");
     beerimage.setAttribute("src", "Images/beer.png");
     beerimage.setAttribute("height", "90%");
@@ -109,6 +113,7 @@ function findAsset(data, usr) {
 }
 
 function checkout2(iou) {
+    console.log("hej");
     var ausr = localStorage.usrAdmin;
     var apass = localStorage.passAdmin;
 
@@ -130,26 +135,16 @@ function checkout2(iou) {
     }
     if (sum > funds) {
 	if ((funds - sum) < -1000) {
-	    
-	    document.getElementById("status").innerHTML = "You can't afford this";
-	    
+	    document.getElementById("status").innerHTML = "You can't afford this";	    
 	    return;
 	}
     }
-    
+        console.log("hej2");
     for(var i = 0;i < obj.items.length;i++) {
-	/*	data = "username=" + ausr + "&password=" + apass + "&action=inventory_append" + 
-		"&beer_id=" + obj.items[i].id + "&amount=" + "-" + obj.items[i].count + "&price=" + obj.items[i].price;
-		send_request(data);
-		data2 = "username=" + usr + "&password=" + pass + "&action=purchases_append" + 
-		"&beer_id=" + obj.items[i].id
-		send_request(data2);*/
-
 	data = "username=" + ausr + "&password=" + apass + "&action=inventory_append" + 
 	    "&beer_id=" + obj.items[i].id + "&amount=" + "-" + obj.items[i].count + "&price=" + obj.items[i].price;
 	    console.log(apass);
 	send_request_callback(data,function tmp(resp) {
-
 	    var respObj = JSON.parse(resp);
 	    if(respObj.type == "error") {
 		document.getElementById("status").innerHTML = "An error occured";
@@ -158,7 +153,7 @@ function checkout2(iou) {
 	    data2 = "username=" + usr + "&password=" + pass + "&action=purchases_append" + 
 		"&beer_id=" + obj.items[i].id;
 	    send_request_callback(data2,function tmp2(resp2) {
-		var respObj = JSON.parse(resp);
+		var respObj = JSON.parse(resp2);
 		if( respObj.type == "error"){
 		    document.getElementById("status").innerHTML = "An error occured2";
 		    return;
@@ -167,6 +162,7 @@ function checkout2(iou) {
 	    });
 	});
     }
+        console.log("hej3");
 
     document.getElementById("status").innerHTML = "Purchase sucessful";
     document.getElementById("pay").setAttribute("class", "hidden");
@@ -175,7 +171,7 @@ function checkout2(iou) {
 }
 
 function checkout() {
-    document.getElementById("status").innerHTML = "Processeing";
+    document.getElementById("status").innerHTML = "Processing";
     var usr = document.getElementById('username').value.toString();
     var pass = document.getElementById('password').value.toString();
     var ausr = localStorage.usrAdmin;
@@ -195,18 +191,17 @@ function checkout() {
         var val = parseInt(document.getItembyId("funds").toValue);
     } else {
         var data = "username=jorass &password=jorass&action=iou_get_all";
-
         send_request_callback(data, checkout2);
         return;
     }
+    console.log("hejasd");
     if (sum > funds) {
 	if ((funds - sum) < -1000) {
-	    document.getElementById("status").innerHTML = "You can't afford this";
-	    
+	    document.getElementById("status").innerHTML = "You can't afford this";   
 	    return;
 	}
     }
-
+    
     for(var i = 0;i < obj.items.length;i++) {
 	data = "username=" + ausr + "&password=" + apass + "&action=inventory_append" + 
 	    "&beer_id=" + obj.items[i].id + "&amount=" + "-" + obj.items[i].count + "&price=" + obj.items[i].price;
@@ -219,12 +214,11 @@ function checkout() {
 	    data2 = "username=" + usr + "&password=" + pass + "&action=purchases_append" + 
 		"&beer_id=" + obj.items[i].id;
 	    send_request_callback(data2,function tmp2(resp2) {
-		var respObj = JSON.parse(resp);
+		var respObj = JSON.parse(resp2);
 		if( respObj.type == "error"){
 		    document.getElementById("status").innerHTML = "An error occured2";
 		    return;
-	    }
-		
+		}
 	    });
 	});
     }
@@ -232,8 +226,7 @@ function checkout() {
     document.getElementById("status").innerHTML = "Purchase sucessful";
     document.getElementById("pay").setAttribute("class", "hidden");
     sessionStorage.removeItem("cart");
-
-    nextLocation('inventory.html');
+    //nextLocation('inventory.html');
 }
 
 function load_prev_cart() {
@@ -275,6 +268,7 @@ function previous_orders() {
 
 function undo() {
     if (sessionStorage.cart === undefined || sessionStorage.cart === null) {
+	sessionStorage.redo2 = sessionStorage.redo;
 	return;
     } else {
         var myListDiv = document.getElementById("cart");

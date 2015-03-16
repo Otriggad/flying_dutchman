@@ -115,6 +115,14 @@
 	    I lager:	    
 	  </swedish>
 	</translation>
+	<translation id="div[name='amount']">
+	  <english>
+	    In stock
+	  </english>
+	  <swedish>
+	    I lager	    
+	  </swedish>
+	</translation>
 	<translation id="b[name='oos']">
 	  <english>
 	    Ej i lager:
@@ -139,29 +147,92 @@
 	    namn
       </swedish>
 	</translation>
-
-<translation id="div[name='hem']">
+	<translation id="b[name='type']">
+	  <english>
+	    Type:
+	  </english>
+	  <swedish>
+	    Sort:
+	  </swedish>
+	</translation>
+	<translation id="b[name='pkg']">
+	  <english>
+	    Packaging:
+	  </english>
+	  <swedish>
+	    Förpackning:
+	  </swedish>
+	</translation>
+	<translation id="b[name='level']">
+	  <english>
+	    Alcohol level:
+	  </english>
+	  <swedish>
+	    Alkoholhalt:
+	  </swedish>
+	  </translation>
+	<translation id="div[name='all']">
+	  <english>
+	    All
+	  </english>
+	  <swedish>
+	    Alla
+      </swedish>
+	</translation>
+	<translation id="div[name='search']">
+	  <english>
+	    Search
+	  </english>
+	  <swedish>
+	    Sök
+	  </swedish>
+	</translation>
+	<translation id="div[name='hem']">
 	  <english>
 	    Home
 	  </english>
 	  <swedish>
 	    Hem
-      </swedish>
+	  </swedish>
 	</translation>
-<translation id="label[name='personal']">
-		<english>
-			Staff
-		</english>
-		<swedish>
-			Personal
-		</swedish>
+	<translation id="label[name='personal']">
+	  <english>
+	    Staff
+	  </english>
+	  <swedish>
+	    Personal
+	  </swedish>
+	</translation>
+	<translation id="button[name='pay']">
+	  <english>
+	    Pay
+	  </english>
+	  <swedish>
+	    Betala
+	  </swedish>
+	</translation>
+	<translation id="button[name='back']">
+	  <english>
+	    Back
+	  </english>
+	  <swedish>
+	    Tillbaka
+	  </swedish>
+	</translation>
+	<translation id="button[name='logout']">
+	  <english>
+	    Log out
+	  </english>
+	  <swedish>
+	    Logga ut
+	  </swedish>
 	</translation>
 	<translation id="label[name='kund']">
-		<english>
-			Customer
-		</english>
-		<swedish>
-			Kund
-		</swedish>
-	</translation>
+	  <english>
+	    Customer
+	  </english>
+	  <swedish>
+	    Kund
+	  </swedish>
+	</translation>	
 </translations>
