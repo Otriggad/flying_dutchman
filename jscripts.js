@@ -889,13 +889,13 @@ function setLanguage(inputLang) {
     });
 
 }
+
+$(document).ready(function(){
+    if(localStorage["currentLang"] == null){ localStorage.setItem("currentLang", "english") }
+    setLanguage(localStorage.getItem("currentLang"));
+});
+
 /*
- $(document).ready(function () {
- if (localStorage["currentLang"] == null) {
- localStorage.setItem("currentLang", "english")
- }
- setLanguage(localStorage.getItem("currentLang"));
- 
  $("img.lang").on("click", function () {
  if ($(this).hasClass("sv")) {
  $("#swedish").addClass("hidden");
@@ -920,13 +920,13 @@ function setLanguage(inputLang) {
  setLanguage("swedish");
  }
  
- })
+ });
  });
  */
 //Allows shopping cart to change css properties, position turned fixed from static when scrolled to
 $(function () {
     // Check the initial Poistion of the Sticky Header
-    var stickyHeaderTop = $('#cart').offset().top;
+    var stickyHeaderTop = $('#cart').offset.top;
 
     $(window).scroll(function () {
         if ($(window).scrollTop() > stickyHeaderTop) {

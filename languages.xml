@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <translations>
-
-	<translation id="a[name='inventory']">
+	<translation id="div[name='inventory']">
 		<english>
 			Inventory
 		</english>
@@ -9,7 +8,23 @@
 			Lager
 		</swedish>
 	</translation>
-	<translation id="a[name='login']">
+	<translation id="div[name='login']">
+		<english>
+			Login
+		</english>
+		<swedish>
+			Inloggning
+		</swedish>
+	</translation>
+	<translation id="button[name='subreq']">
+		<english>
+			Submit Request
+		</english>
+		<swedish>
+			Skicka Ansökan
+		</swedish>
+	</translation>
+	<translation id="button[name='login']">
 		<english>
 			Login
 		</english>
@@ -65,15 +80,6 @@
 	    Pris:
 	  </swedish>
 	  </translation>
-
-	<translation id="a[name='katter']">
-	  <english>
-	    Engelskt test
-	  </english>
-	  <swedish>
-	    Svenskt test
-	  </swedish>
-	</translation>
 	<translation id="b[name='name']">
 	  <english>
 	    name
@@ -83,4 +89,28 @@
       </swedish>
 	</translation>
 
+<translation id="div[name='hem']">
+	  <english>
+	    Home
+	  </english>
+	  <swedish>
+	    Hem
+      </swedish>
+	</translation>
+<translation id="label[name='personal']">
+		<english>
+			Staff
+		</english>
+		<swedish>
+			Personal
+		</swedish>
+	</translation>
+	<translation id="label[name='kund']">
+		<english>
+			Customer
+		</english>
+		<swedish>
+			Kund
+		</swedish>
+	</translation>
 </translations>
