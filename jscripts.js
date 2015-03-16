@@ -317,10 +317,6 @@ function addToCart(data) {
         list = document.getElementById("cList");
     }
     if (sessionStorage.cart !== undefined && sessionStorage.cart !== null) {
-//        alert("Hello1");
-//        alert(sessionStorage.cart);
-//        alert(sessionStorage.cart !== undefined);
-//        alert(sessionStorage.cart !== null);
         jsonStr = sessionStorage.cart;
         obj = JSON.parse(jsonStr);
         var length = obj.items.length;
