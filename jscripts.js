@@ -531,6 +531,7 @@ function create_table(inv, mode) {
                     var t_detail = document.createTextNode("Details");
                     btn_detail.appendChild(t_detail);
 		    btn_detail.setAttribute("name","details");
+		    btn_detail.setAttribute("class","modali");
                     td.appendChild(btn);                    
                     td.appendChild(btn_detail);
                     btn_detail.setAttribute("Style", "float: right;");
@@ -541,7 +542,8 @@ function create_table(inv, mode) {
                     }
                     if (mode === "bar") {
                         var lbl = document.createElement("LABEL");
-			lbl.setAttribute("name","refill")
+			lbl.setAttribute("name","refill");
+			lbl.setAttribute("class","modali");
                         lbl.appendChild(document.createTextNode("Refill"));
                         lbl.setAttribute("id", "hot-container");
                         lbl.setAttribute("hot-container", "prod" + i);
