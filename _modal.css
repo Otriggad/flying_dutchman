@@ -1,7 +1,6 @@
-/* [Object] Modal
- * =============================== */
 .modal {
-
+  color: #310010;
+  background-color: #310010;
   opacity: 0;
   visibility: hidden;
   position: fixed;
@@ -28,6 +27,7 @@
 }
 
 .modal-state:checked + .modal {
+
   opacity: 1;
   visibility: visible;
 }
@@ -37,20 +37,28 @@
 }
 
 .modal__inner {
-  color: #310010;
   transition: top .25s ease;
   position: absolute;
   top: -20%;
   right: 0;
   bottom: 0;
   left: 0;
-  width: 50%;
+  width: 25%;
   margin: auto;
   overflow: auto;
-  background: #fff;
+  background: #310010;
   border-radius: 5px;
   padding: 1em 2em;
-  height: 50%;
+  height: 25%;
+  border: 2px solid black;
+    border-radius: 25px;
+    -webkit-transition: all 1.0s;
+    -moz-transition: all 1.0s;
+    transition: all 1.0s;
+    -webkit-box-shadow: 0px 0px 10px 2px #CC9900;
+    -moz-box-shadow: 0px 0px 10px 2px #CC9900;
+    box-shadow: 0px 0px 10px 2px #CC9900;
+@media screen and (max-width: 768px) {
 }
 
 .modal__close {
@@ -85,18 +93,16 @@
 .modal__close:before {
   transform: rotate(-45deg);
 }
+button.modal {
+    align: center;
+}
 
-@media screen and (max-width: 768px) {
-	
-  .modal__inner {
+.modal__inner {
     width: 90%;
     height: 90%;
     box-sizing: border-box;
   }
 }
 
-
-/* Other
- * =============================== */
 
 
