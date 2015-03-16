@@ -194,11 +194,13 @@ function checkout() {
     if (sessionStorage.mode === "usr") {
         var val = parseInt(document.getItembyId("funds").toValue);
     } else {
-        var data = "username=jorass &password=jorass&action=iou_get_all";
+        var data = "username=jorass&password=jorass&action=iou_get_all";
         send_request_callback(data, checkout_as_callback);
         return;
     }
-    console.log("hejasd");
+
+    
+    funds = 0
     if (sum > funds) {
 	if ((funds - sum) < -1000) {
 	    document.getElementById("status").innerHTML = "You can't afford this";   
@@ -267,7 +269,17 @@ function previous_orders() {
 function undo() {
     if (sessionStorage.cart === undefined || sessionStorage.cart === null) {
 	return;
-    } else if (sessionStorage.oldcart == null){
+    } else if (sessionStorage.oldcart === 'undefined'){
+	var myListDiv = document.getElementById("cart");
+        var li1 = document.getElementById("cList");
+        while (li1.firstChild) {
+            li1.removeChild(li1.firstChild);
+        }
+        myListDiv.appendChild(li1);
+	sessionStorage.redo2 = sessionStorage.redo;
+	sessionStorage.oldcart = 'none';
+	return;
+    } else if (sessionStorage.oldcart === 'none'){
 	var myListDiv = document.getElementById("cart");
         var li1 = document.getElementById("cList");
         while (li1.firstChild) {
@@ -297,12 +309,11 @@ function redo() {
     if (sessionStorage.redo2 !== undefined && sessionStorage.redo2 !== 'undefined') {
         addToCart(sessionStorage.redo2);
         sessionStorage.removeItem("redo2");
-        sessionStorage.removeItem("oldcart");
+        //sessionStorage.removeItem("oldcart");
     } else {
 	return
     }
 }
-
 
 //This function adds a new item to the list, if there's already a list it empty it's and parse the jsonc art and fills it again. 
 //Carts should be represented by an json object {items:[{name,id,count,price}]}
@@ -318,12 +329,13 @@ function addToCart(data) {
         list.setAttribute("id", "cList");
     } else {
         list = document.getElementById("cList");
-    }
+    }   
     if (sessionStorage.cart !== undefined && sessionStorage.cart !== 'undefined') {
         jsonStr = sessionStorage.cart;
         obj = JSON.parse(jsonStr);
         var length = obj.items.length;
         for (var i = 0; i <= length; i++) {
+	    //Adds a new element to the list
             if (i === obj.items.length) {
                 obj.items.push({"name": obj2.name, "id": obj2.id, "count": obj2.count, "price": (obj2.count * obj2.price)});
                 var li1 = document.createElement('LI');
@@ -338,6 +350,7 @@ function addToCart(data) {
                 list.appendChild(li1);
                 sum += obj.items[i].price * obj.items[i].count;
                 console.log(data);
+		//Need to redraw the list item if there already an entry in the list for the product
             } else if (obj.items[i].id === obj2.id) {
                 obj.items[i].count += obj2.count;
                 obj.items[i].price = obj2.price;
@@ -368,6 +381,7 @@ function addToCart(data) {
             }
         }
     } else {
+	//Add a new product to an empty list element
         var p = (obj2.count * obj2.price).toFixed(2);
         obj = {"items": [{"name": obj2.name, "id": obj2.id, "count": obj2.count, "price": obj2.price}]};
         var li1 = document.createElement('LI');
@@ -394,13 +408,15 @@ function addToCart(data) {
 }
 
 function load_user_info(data) {
-    var iou = JSON.parse(data);
-    var funds = 0;
+    //var iou = JSON.parse(data);
+    var funds = "0"; //Set to zero due to api call being very slow
+/*
     for (var i = 0; i < iou.payload.length; i++) {
         if (iou.payload[i].username === localStorage.usr) {
             funds = iou.payload[i].assets;
         }
     }
+*/
     var myDiv = document.getElementById("info");
     var p = document.createElement('P');
     var br = document.createElement('BR');
@@ -418,6 +434,7 @@ function load_user_info(data) {
 
 //draws inventory content
 //this function simply parses the inventory json object and creates the necessary cells for our inventory table.
+
 function create_table(inv, mode) {
     var text = "";
     var myTableDiv = document.getElementById("content_area");
@@ -436,23 +453,18 @@ function create_table(inv, mode) {
         var tr = document.createElement('TR');
         while (j < 5) {
             if (i < inv.payload.length) {
-                //text += "Name: " + inv.payload[i].namn + "</br> <b>Beer ID:</b>" + inv.payload[i].beer_id + "Count:" + inv.payload[i].count + "Price:" + inv.payload[i].price;
-                //var textName = "Name: " + inv.payload[i].namn;
-                //var textCount = "Count: " + inv.payload[i].count;
-                //var textPrice = "Price: " + inv.payload[i].price;
+		//If both names are "" we skip it entirely
                 if (inv.payload[i].namn === "" && inv.payload[i].namn2 === "") {
                     i++;
                     continue;
-                } else {
+                } else { 
                     var tmp;
                     if (inv.payload[i].namn !== "") {
                         var td = document.createElement('TD');
                         td.setAttribute("draggable", "true");
                         td.setAttribute("ondragstart", "drag(event)");
-//                        td.setAttribute("class", "item");
                         td.setAttribute("id", "prodo" + i);
-                        var b1 = document.createElement('B');
-                        
+                        var b1 = document.createElement('B');                        
                         b1.appendChild(document.createTextNode(''));
                         td.appendChild(b1);
                         b1.appendChild(document.createTextNode(inv.payload[i].namn));
@@ -562,8 +574,8 @@ function create_table(inv, mode) {
 function testfunctable(request) {
     if (sessionStorage.mode === "usr") {
         var ui = document.getElementById("user_info");
-        //load_user_info();
-        iou_get_all_request();
+        load_user_info();
+        //iou_get_all_request();
         ui.setAttribute("display","block");
     }
     var inv = JSON.parse(request);
@@ -575,8 +587,8 @@ function testfunctable(request) {
 function callback_filtered_inv(request) {
     if (sessionStorage.mode === "usr") {
         //var ui = document.getElementById("user_info");
-        //load_user_info();
-        iou_get_all_request();
+        load_user_info();
+        //iou_get_all_request();
         //ui.setAttribute("display","block");
     }
     var mode = sessionStorage.mode;
@@ -601,8 +613,8 @@ function callback_filtered_inv(request) {
 function callback_instock_inv(request) {
     if (sessionStorage.mode === "usr") {
         //var ui = document.getElementById("user_info");
-        //load_user_info();
-        iou_get_all_request();
+        load_user_info();
+        //iou_get_all_request();
         //ui.setAttribute("display","block");
     }
     var mode = sessionStorage.mode;
@@ -845,7 +857,7 @@ function user_login() {
     console.log(usr);
     localStorage.setItem("usr", usr);
     localStorage.setItem("pass", pass);
-    sessionStorage.setItem("mode", "usr");
+    //sessionStorage.setItem("mode", "usr");
     location.href = 'inventory.html';
 }
 function bar_login() {
