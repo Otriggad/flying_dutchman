@@ -226,6 +226,10 @@ input[type="radio"] {
     float: left;
 }
 
+#user_info {
+    display: none;
+}
+
 @-webkit-keyframes rot1 {
     0% { -webkit-transform: rotate(0deg); }
     25% { -webkit-transform: rotate(0.5deg); }
