@@ -13,14 +13,14 @@
     <body onload="clear_cart(); inventory_get_request();">
 
         <div id="navigation">
-            <div id="home" onclick="nextLocation('index.html');">Home</div>
+            <div id="home" name="hem" onclick="nextLocation('index.html');">Home</div>
             <input id="searchbar" type="search" onKeydown="Javascript:if (event.keyCode === 13) search_inventory_get_request();">
-            <div id="search" onclick="clear_content(); search_inventory_get_request();">Search</div>
+            <div id="search" name="search" onclick="clear_content(); search_inventory_get_request();">Search</div>
             <!--<div id="show">Show:</div>-->
             <input id="showall" name="show" type="radio" onclick="clear_content(); inventory_get_request();" checked="checked">
-            <div id="all">All</div>
+            <div id="all" name="all">All</div>
             <input id="showinstock" name="show" type="radio" onclick="clear_content(); instock_inventory_get_request();">
-            <div id="instock">In Stock</div>
+            <div id="instock" name="amount">In Stock</div>
         </div>
 
 <!--        <div id="searchfield">
@@ -62,9 +62,9 @@
             <input id="username" name="username" placeholder="username" type="text"><br><br>
             <input id="password" name="password" placeholder="password" type="password"><br><br>
 	    <p id="status"></p>
-            <button id="pay" onclick="checkout();">pay</button>
-            <button id="back" onclick="nextLocation('inventory.html');">back</button>
-            <button id="logout" onclick="user_logout();">logout</button>
+            <button id="pay" name="pay" onclick="checkout();">pay</button>
+            <button id="back" name="back" onclick="nextLocation('inventory.html');">back</button>
+            <button id="logout" name="logout" onclick="user_logout();">logout</button>
 
           </div>
         </div>

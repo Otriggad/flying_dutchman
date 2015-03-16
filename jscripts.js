@@ -112,7 +112,10 @@ function findAsset(data, usr) {
     }
 }
 
-function checkout2(iou) {
+
+//This will be used if the user are not logged in while browsing the inventory.
+//Essentially does the same thing as checkout
+function checkout_as_callback(iou) {
     console.log("hej");
     var ausr = localStorage.usrAdmin;
     var apass = localStorage.passAdmin;
@@ -170,6 +173,7 @@ function checkout2(iou) {
     
 }
 
+//Checks if the user has enough funds and then calls the right request to the database for appending purchase and inventories
 function checkout() {
     document.getElementById("status").innerHTML = "Processing";
     var usr = document.getElementById('username').value.toString();
@@ -191,7 +195,7 @@ function checkout() {
         var val = parseInt(document.getItembyId("funds").toValue);
     } else {
         var data = "username=jorass &password=jorass&action=iou_get_all";
-        send_request_callback(data, checkout2);
+        send_request_callback(data, checkout_as_callback);
         return;
     }
     console.log("hejasd");
@@ -229,19 +233,13 @@ function checkout() {
     //nextLocation('inventory.html');
 }
 
+//Erases the current list element and replaces it with an older version of the cart
 function load_prev_cart() {
 
-    if (sessionStorage.oldcart == null) {
-        var cdiv = document.getElementById("cart");
-        var ld = document.getElementById("cList");
-        if (ld !== null) {
-            while (ld.firstChild)
-                ld.removeChild(ld.firstChild);
-        }
-        cdiv.appendChild(ld);
+    if (sessionStorage.oldcart === 'undefined') {
 	document.getElementById("span_total").innerHTML = "0.00";
         return;
-    } else {  
+    } else  {  
         var obj = JSON.parse(sessionStorage.oldcart);
         var myListDiv = document.getElementById("cart");
         var list = document.createElement('UL');
@@ -268,7 +266,14 @@ function previous_orders() {
 
 function undo() {
     if (sessionStorage.cart === undefined || sessionStorage.cart === null) {
-	sessionStorage.redo2 = sessionStorage.redo;
+	return;
+    } else if (sessionStorage.oldcart == null){
+	var myListDiv = document.getElementById("cart");
+        var li1 = document.getElementById("cList");
+        while (li1.firstChild) {
+            li1.removeChild(li1.firstChild);
+        }
+        myListDiv.appendChild(li1);
 	return;
     } else {
         var myListDiv = document.getElementById("cart");
@@ -289,11 +294,10 @@ function undo() {
 
 
 function redo() {
-    if (sessionStorage.redo2 !== undefined && sessionStorage.redo2 !== null) {
+    if (sessionStorage.redo2 !== undefined && sessionStorage.redo2 !== 'undefined') {
         addToCart(sessionStorage.redo2);
         sessionStorage.removeItem("redo2");
-        //sessionStorage.removeItem("oldcart");
-	
+        sessionStorage.removeItem("oldcart");
     } else {
 	return
     }
@@ -315,7 +319,7 @@ function addToCart(data) {
     } else {
         list = document.getElementById("cList");
     }
-    if (sessionStorage.cart !== undefined && sessionStorage.cart !== null) {
+    if (sessionStorage.cart !== undefined && sessionStorage.cart !== 'undefined') {
         jsonStr = sessionStorage.cart;
         obj = JSON.parse(jsonStr);
         var length = obj.items.length;
@@ -364,10 +368,6 @@ function addToCart(data) {
             }
         }
     } else {
-//        alert("Hello2");
-//        alert(sessionStorage.cart);
-//        alert(sessionStorage.cart !== undefined);
-//        alert(sessionStorage.cart !== "null");
         var p = (obj2.count * obj2.price).toFixed(2);
         obj = {"items": [{"name": obj2.name, "id": obj2.id, "count": obj2.count, "price": obj2.price}]};
         var li1 = document.createElement('LI');
