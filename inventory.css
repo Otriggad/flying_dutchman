@@ -1,12 +1,9 @@
-
-
 body {
     background-color: #310010;
     font-family: Verdana, Geneva, sans-serif;
     /*background-size: cover;*/
     /*width: 100%;*/
 }
-
 
 #header {
     position: relative;
@@ -195,18 +192,15 @@ input[type="radio"] {
     float: right;
     position: static;
     background-color:#B38806;
-    padding:0 1%;
+    padding:0% 3% 0% 3%;
     margin-top: 30px;  
     overflow-y: scroll;
+    
     height: 400px;
-
     cursor: pointer;
-    font-size: 1.2em;
-    width: 600*0.30;
+    margin: 2% 1% 2% 2%;
     text-align: center;
-    text-shadow: 0.035em 0.035em black;
-    margin: 2% 2% 2% 2%;
-    padding: 0.5% 1% 0.5% 1%;
+    text-shadow: 0.035em 0.035em black;   
     border: 2px solid black;
     border-radius: 25px;
     -webkit-transition: all 1.0s;
@@ -250,7 +244,13 @@ input[type="radio"] {
 }
 
 #beerdetail {
-    float: left;
+    float: left; 
+}
+
+#beerdetail_wrapper {
+    color: #B38806;
+    width: 35%;
+    padding-bottom: 5%; 
 }
 
 #user_info {
@@ -259,6 +259,7 @@ input[type="radio"] {
 #status{
     color: #CC9900;
 }
+
 
 @-webkit-keyframes rot1 {
     0% { -webkit-transform: rotate(0deg); }
