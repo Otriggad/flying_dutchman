@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="staff_account_sheet.css">
+	<script src="jquery.js" type="text/javascript"></script>
         <script src="jscripts.js" type="text/javascript"></script>
     </head>
     <body>
@@ -13,16 +14,16 @@
         </div>
         <div id="history">
             <div id="hist">Navigation: </div>
-            <div id="home" onclick="nextLocation('index.html');">Home</div>
-            <div id="login" onclick="nextLocation('login.html');">Login</div>
-            <div id="staff" onclick="nextLocation('staff.html');">Staff</div>
-            <div id="account" onclick="nextLocation('staff_account.html');">Account</div>
+            <div id="home" name="hem" onclick="nextLocation('index.html');">Home</div>
+            <div id="login" name="login" onclick="nextLocation('login.html');">Login</div>
+            <div id="staff" name="staff" onclick="nextLocation('staff.html');">Staff</div>
+            <div id="account" name="acc" onclick="nextLocation('staff_account.html');">Account</div>
         </div>
         <div id="wrapper">
-            <div id="reg_account" onclick="nextLocation('staff_account_register.html')">Register Account</div>
-            <div id="delete_account" onclick="nextLocation('staff_account_delete.html')">Delete Account</div>
-            <div id="edit_account" onclick="nextLocation('staff_account_edit.html')">Edit Account</div>
-            <div id="credit_account" onclick="nextLocation('staff_account_credit.html')">Add Credit</div>
+            <div id="reg_account" name="reg_acc" onclick="nextLocation('staff_account_register.html')">Register Account</div>
+            <div id="delete_account" name="del_acc" onclick="nextLocation('staff_account_delete.html')">Delete Account</div>
+            <div id="edit_account" name="edit_acc" onclick="nextLocation('staff_account_edit.html')">Edit Account</div>
+            <div id="credit_account" name="credit_acc" onclick="nextLocation('staff_account_credit.html')">Add Credit</div>
         </div>
     </body>
 </html>

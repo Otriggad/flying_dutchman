@@ -36,7 +36,7 @@
 	<translation id="label[name='details']">
 	  <english>
 	    Details
-	  </english>
+	    </english>
 	  <swedish>
 	    Mer info
 	  </swedish>
@@ -204,6 +204,14 @@
 	    Hem
 	  </swedish>
 	</translation>
+	<translation id="div[name='staff']">
+	  <english>
+	    Staff
+	  </english>
+	  <swedish>
+	    Personal
+	  </swedish>
+	</translation>
 	<translation id="label[name='personal']">
 	  <english>
 	    Staff
@@ -218,6 +226,38 @@
 	  </english>
 	  <swedish>
 	    Betala
+	  </swedish>
+	</translation>
+	<translation id="div[name='stock']">
+	  <english>
+	    Stock Management
+	  </english>
+	  <swedish>
+	    Lagerhantering
+	  </swedish>
+	</translation>
+	<translation id="div[name='orders']">
+	  <english>
+	    Purchases and Orders
+	  </english>
+	  <swedish>
+	    Köp och ordrar
+	  </swedish>
+	</translation>	
+	<translation id="div[name='acc']">
+	  <english>
+	    Account 
+	  </english>
+	  <swedish>
+	    Konto
+	  </swedish>
+	</translation>
+	<translation id="div[name='account']">
+	  <english>
+	    Account management
+	  </english>
+	  <swedish>
+	    Hantera konton
 	  </swedish>
 	</translation>
 	<translation id="button[name='back']">
@@ -243,5 +283,37 @@
 	  <swedish>
 	    Kund
 	  </swedish>
-	</translation>	
+	</translation>
+	<translation id="div[name='reg_acc']">
+	  <english>
+	    Register Account
+	  </english>
+	  <swedish>
+	    Registrera konto
+	  </swedish>
+	</translation>
+	<translation id="div[name='del_acc']">
+	  <english>
+	    Delete account
+	  </english>
+	  <swedish>
+	    Radera konto
+	  </swedish>
+	</translation>
+	<translation id="div[name='edit_acc']">
+	  <english>
+	    Edit Account
+	  </english>
+	  <swedish>
+	    Ändra konto
+	  </swedish>
+	</translation>
+	<translation id="div[name='credit_acc']">
+	  <english>
+	    Add Credit
+	  </english>
+	  <swedish>
+	    Lägg till kredit
+	  </swedish>
+	</translation>
 </translations>
